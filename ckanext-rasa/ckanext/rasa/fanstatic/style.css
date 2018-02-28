@@ -22,9 +22,8 @@ body {
   overflow-x: hidden;
 }
 
-ul {
+ul#chat-start {
   padding: 0;
-  height: 99%;
   margin: 0;
 }
 

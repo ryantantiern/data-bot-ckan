@@ -4,13 +4,13 @@
 <body>
   <div class="container" id="outer-wrapper">
     <div class="chatbox">
-      <ul id="chat-start">
-      </ul>
+      <ul id="chat-start"></ul>
+      <ul id="chat-loading"></ul>
     </div>
     <!-- Input Bar -->
     <form class="input-form" onsubmit="submit_query(this); return false" autocomplete="off">
       <div class="input-group mb-3"  id="chat-input">
-        <input type="text" class="form-control user-input" id="user-input" placeholder="New message..." name="user-input" autofocus >
+        <input type="text" class="form-control user-input" id="user-input" placeholder="New message..." autofocus >
         <div class="input-group-append">
           <input class="btn btn-outline-dark" type="hidden">
         </div>
