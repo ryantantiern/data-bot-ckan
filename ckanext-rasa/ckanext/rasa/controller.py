@@ -11,6 +11,7 @@ def get_response_from_rasa(text):
         session.save()
 
     # RASA Goes here
+    
     response = "this is an automated response"
     return response
 
