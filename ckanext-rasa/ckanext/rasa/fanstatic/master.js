@@ -42,11 +42,16 @@ function handle_request_error(response){
 
 
 function bot_response(response){
+  console.log(response)
   if (response["error"]){
     // Handle error
     return
   }
-  _append(response["bot"], false)
+  // Bot's response is a list
+  for (i in response["bot"]) {
+    _append(response["bot"][i], false)
+  }
+  // _append(response["bot"], false)
 }
 
 // AJAX using promises

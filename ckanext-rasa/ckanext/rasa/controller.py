@@ -1,8 +1,11 @@
-import ckan.plugins as p
 import json
 import time
-from ckan.lib.base import BaseController
+
+import ckan.plugins
 from ckan.common import request, response, session
+from ckan.lib.base import BaseController
+from data_bot.main.main import handle_message
+from plugin import agent
 
 def get_response_from_rasa(text):
     # Need to handle sender_id
@@ -10,9 +13,7 @@ def get_response_from_rasa(text):
         session["sender_id"] = session.id
         session.save()
 
-    # RASA Goes here
-    
-    response = "this is an automated response"
+    response = agent.handle_message(text, sender_id=session["sender_id"])
     return response
 
 
@@ -21,7 +22,7 @@ class RasaPluginController(BaseController):
         body = {}
         try:
             request_body = json.loads(request.body)
-        except Exception as e:
+        except Exception:
             # Didn't get appropriate JSON format
             response.status = 404
             return
@@ -32,7 +33,6 @@ class RasaPluginController(BaseController):
             return
 
         bot_response = get_response_from_rasa(request_body["text"])
-
         if not bot_response:
             body["error"] = True
             bot_response = "Something went wrong. Terminating and restarting..."

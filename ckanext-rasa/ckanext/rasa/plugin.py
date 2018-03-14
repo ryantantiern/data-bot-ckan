@@ -2,8 +2,28 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckan.lib.base import BaseController
 
+import time
+import logging
+import cPickle as pkl
+from data_bot.main.main import MODEL_PATH, INTEPRETER_PATH, AGENT_PKL_PATH
+from rasa_core.agent            import Agent
+from rasa_core.interpreter      import RasaNLUInterpreter
+
+logger = logging.getLogger(__name__)
+
 
 class RasaPlugin(plugins.SingletonPlugin): # Inherits PLugin Singleton Class
+
+    # initialize agent
+    logger.info("Instantiating Rasa Agent")
+    start = time.time()
+    global agent
+    agent = Agent.load(MODEL_PATH, interpreter=RasaNLUInterpreter(INTEPRETER_PATH))    
+    print(agent)
+    end = time.time()
+    logger.info("Instantiatiation took {} seconds".format(end-start))
+
+    
     plugins.implements(plugins.IConfigurer)
     def update_config(self, config_):
         # Add this plugin's templates dir to CKAN's extra_template_paths, so
