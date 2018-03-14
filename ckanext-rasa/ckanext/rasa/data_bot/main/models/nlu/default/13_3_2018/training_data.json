@@ -1,0 +1,880 @@
+{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "entities": [
+          {
+            "start": 20, 
+            "end": 27, 
+            "value": "British", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 28, 
+            "end": 35, 
+            "value": "economy", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "find me data on the british economy"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 22, 
+            "end": 36, 
+            "value": "urban planning", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 40, 
+            "end": 46, 
+            "value": "London", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "I want data regarding urban planning in London"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 18, 
+            "end": 27, 
+            "value": "political", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 28, 
+            "end": 35, 
+            "value": "discord", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 47, 
+            "end": 48, 
+            "value": "6", 
+            "entity": "limit"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "search data about political discord limited to 6 results"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 32, 
+            "end": 49, 
+            "value": "population growth", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 54, 
+            "end": 65, 
+            "value": "food supply", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 69, 
+            "end": 83, 
+            "value": "underdeveloped", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "get information associated with population growth and food supply in underdeveloped countires"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 20, 
+            "end": 36, 
+            "value": "computer science", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 47, 
+            "end": 48, 
+            "value": "3", 
+            "entity": "limit"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "retrieve data about computer science, limit to 3 results"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 26, 
+            "end": 31, 
+            "value": "urban", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 56, 
+            "end": 58, 
+            "value": "10", 
+            "entity": "limit"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "need statistics about the urban domain limit results to 10"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 20, 
+            "end": 32, 
+            "value": "construction", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 37, 
+            "end": 47, 
+            "value": "congestion", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "find me data on the construction and congestion"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 22, 
+            "end": 26, 
+            "value": "tube", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 28, 
+            "end": 40, 
+            "value": "construction", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 42, 
+            "end": 52, 
+            "value": "congestion", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 57, 
+            "end": 63, 
+            "value": "census", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 72, 
+            "end": 78, 
+            "value": "London", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "I want data regarding tube, construction, congestion and census data in London"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 18, 
+            "end": 27, 
+            "value": "political", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 39, 
+            "end": 45, 
+            "value": "Brexit", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 57, 
+            "end": 58, 
+            "value": "6", 
+            "entity": "limit"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "search data about political trends and Brexit limited to 6 results"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 31, 
+            "end": 38, 
+            "value": "chinese", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 39, 
+            "end": 43, 
+            "value": "news", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 10, 
+            "end": 11, 
+            "value": "4", 
+            "entity": "limit"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "fetch top 4 figures concerning chinese news"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 23, 
+            "end": 26, 
+            "value": "University College London", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 9, 
+            "end": 10, 
+            "value": "5", 
+            "entity": "limit"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "identify 5 facts about ucl"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 40, 
+            "end": 49, 
+            "value": "astronomy", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "I'm looking for details with regards to astronomy"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "I'm looking for data"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "find data for me"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "i want to search for information"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "i'm searching for data sources"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "get me data"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "can you get me data sources"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "retrieve some relevant data sources for me"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "fetch data"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "source data"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "search for data"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "bring me some data"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 7, 
+            "value": "British", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 8, 
+            "end": 15, 
+            "value": "economy", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "british economy"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 14, 
+            "value": "urban planning", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "urban planning"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 7, 
+            "value": "farming", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "farming"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 6, 
+            "value": "London", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 8, 
+            "end": 25, 
+            "value": "built environment", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 27, 
+            "end": 41, 
+            "value": "transportation", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "London, built environment, transportation"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 13, 
+            "value": "road networks", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 15, 
+            "end": 22, 
+            "value": "housing", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 24, 
+            "end": 33, 
+            "value": "transport", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "road networks, housing, transport"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 25, 
+            "value": "University College London", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "university college london"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 25, 
+            "value": "University College London", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 27, 
+            "end": 47, 
+            "value": "Kings College London", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 49, 
+            "end": 72, 
+            "value": "Imperial College London", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "university college london, kings college london, imperial college london"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 3, 
+            "value": "University College London", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 4, 
+            "end": 7, 
+            "value": "Kings College London", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 8, 
+            "end": 11, 
+            "value": "Imperial College London", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "ucl kcl icl"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 9, 
+            "end": 15, 
+            "value": "rivers", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 20, 
+            "end": 26, 
+            "value": "plants", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "tags are rivers and plants"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 17, 
+            "end": 31, 
+            "value": "urban planning", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 36, 
+            "end": 53, 
+            "value": "population growth", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "search terms are urban planning and population growth"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 6, 
+            "end": 18, 
+            "value": "construction", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 19, 
+            "end": 29, 
+            "value": "congestion", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 30, 
+            "end": 38, 
+            "value": "mobility", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 39, 
+            "end": 46, 
+            "value": "housing", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "term: construction congestion mobility housing"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 10, 
+            "value": "Manchester", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "Manchester"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 8, 
+            "value": "Scotland", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "Scotland"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "hey"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "hi"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "hello"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "yo"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "how's it going"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "what's up"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "good morning"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "good evening"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "howdy"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "hey there"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "Hello"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "Hi"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "Greetings"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "greetings"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "hi ya"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "shalom"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "how are you"
+      }, 
+      {
+        "entities": [], 
+        "intent": "bye", 
+        "text": "bye"
+      }, 
+      {
+        "entities": [], 
+        "intent": "bye", 
+        "text": "goodbye"
+      }, 
+      {
+        "entities": [], 
+        "intent": "bye", 
+        "text": "stop"
+      }, 
+      {
+        "entities": [], 
+        "intent": "bye", 
+        "text": "end"
+      }, 
+      {
+        "entities": [], 
+        "intent": "bye", 
+        "text": "farewell"
+      }, 
+      {
+        "entities": [], 
+        "intent": "bye", 
+        "text": "Bye bye"
+      }, 
+      {
+        "entities": [], 
+        "intent": "bye", 
+        "text": "have a good one"
+      }, 
+      {
+        "entities": [], 
+        "intent": "bye", 
+        "text": "thanks"
+      }, 
+      {
+        "entities": [], 
+        "intent": "bye", 
+        "text": "thank you"
+      }, 
+      {
+        "entities": [], 
+        "intent": "bye", 
+        "text": "cheers"
+      }, 
+      {
+        "entities": [], 
+        "intent": "bye", 
+        "text": "bless you"
+      }, 
+      {
+        "entities": [], 
+        "intent": "bye", 
+        "text": "merci"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "yes"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "yep"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "yeah"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "indeed"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "that's right"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "ok"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "great"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "right"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "correct"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "great choice"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "sounds really good"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "okay"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "alright"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "fine"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "sure thing"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "definitely"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "sure"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "no"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "nah"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "nope"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "nae"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "never"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "no thanks"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "negative"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "not really"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "no indeed"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "absolutely not"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "most certainly not"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "no way"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "that's enough"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "what can you do"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "tell me about yourself"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "how can you assist me?"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "HELP"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "help"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "display functionality"
+      }
+    ], 
+    "entity_synonyms": [], 
+    "regex_features": []
+  }
+}
