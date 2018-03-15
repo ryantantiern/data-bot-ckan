@@ -8,6 +8,7 @@ from pprint import pprint
 
 from rasa_core.actions import Action
 from rasa_core.events  import SlotSet, Restarted, AllSlotsReset
+from ckanext.rasa.data_bot.main.main import api_get_package_by_tag
 
 FUNCTIONS = [
     "source data"
@@ -46,18 +47,17 @@ class SourceData(Action):
 
     def run(self, dispatcher, tracker, domain):
         """
-        Find data sources that match tags. If no data sources are found,
-        return an empty list
+        Find data sources that match tags
         """
+        print(tracker.current_state())
         tags = tracker.get_slot('tags')
         limit = tracker.get_slot('limit')
-        message = "There may have been more that one tag specified, but currently I can only support 1 and\
-        that so happens to be the last one. Sourcing datasets that have the tag {}. ".format(tags)
-
-        if tags is not None:
-            if limit is not None:
-                message += "Limiting the results to {}.".format(limit)
-            dispatcher.utter_message(message)
+        message = "Currently I can only support sourcing from 1 tag. Datasets that have tag(s) {}:\n".format(tags)
+        if limit is None:
+            limit = 5
+        results = api_get_package_by_tag(tags, limit)
+        message += results
+        dispatcher.utter_message(message)
         return []
 
 class Help(Action):

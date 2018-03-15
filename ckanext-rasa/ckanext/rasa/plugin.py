@@ -19,7 +19,6 @@ class RasaPlugin(plugins.SingletonPlugin): # Inherits PLugin Singleton Class
     start = time.time()
     global agent
     agent = Agent.load(MODEL_PATH, interpreter=RasaNLUInterpreter(INTEPRETER_PATH))    
-    print(agent)
     end = time.time()
     logger.info("Instantiatiation took {} seconds".format(end-start))
 

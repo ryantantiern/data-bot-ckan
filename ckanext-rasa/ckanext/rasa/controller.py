@@ -4,7 +4,6 @@ import time
 import ckan.plugins
 from ckan.common import request, response, session
 from ckan.lib.base import BaseController
-from data_bot.main.main import handle_message
 from plugin import agent
 
 def get_response_from_rasa(text):

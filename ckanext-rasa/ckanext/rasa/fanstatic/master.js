@@ -74,6 +74,10 @@ function send_user_message(url, methodType, text){
 
 function format_incoming_message(text, is_human){
   /*Create message object*/
+
+  // Converts \n given in python to breakline suitable for HTML
+  console.log(text)
+  text = text.replace(/\n/g, "<br>")
   time = _get_time()
   return {
     payload: text,
