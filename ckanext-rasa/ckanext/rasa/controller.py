@@ -1,18 +1,26 @@
 import json
 import time
+import logging
 
 import ckan.plugins
 from ckan.common import request, response, session
-from ckan.lib.base import BaseController
-from plugin import agent
+from ckan.lib.base import BaseController, render
+from data_bot.main.main import agent, run_initialize_interpreter_job, instantiate_agent, ipreter, rasa_interpreter
+from rasa_core.agent import Agent
+
+logger = logging.getLogger(__name__)
 
 def get_response_from_rasa(text):
-    # Need to handle sender_id
     if not session.get("sender_id"):
+        # Prevents pylon from assigning a new session id to this user
         session["sender_id"] = session.id
         session.save()
-
-    response = agent.handle_message(text, sender_id=session["sender_id"])
+    try:
+        # handle incoming message
+        response = agent.handle_message(text, sender_id=session["sender_id"])
+    except Exception:
+        logger.exception("Handling error in get_response_from_rasa")
+        return 
     return response
 
 
@@ -39,3 +47,34 @@ class RasaPluginController(BaseController):
         body["bot"] = bot_response
         response.body = json.dumps(body)
         return
+
+    def databot_index(self):
+        
+        global ipreter
+        global agent
+        
+        # Job isn't running
+        if ipreter is None:
+            note = "The DataBot had failed to initialize. Re-initializing DataBot. Please refresh the page in 90 seconds"
+            run_initialize_interpreter_job()
+        
+        elif isinstance(agent, Agent):
+            note = ""
+
+        # Agent is still a Job object
+        elif hasattr(ipreter, "result"): 
+            
+            # Handle case load has failed
+
+            if ipreter.result is None:
+                # Agent hasn't finished loading
+                ipreter_data = ipreter.to_dict()
+                from pprint import pprint as pp
+                pp(ipreter_data)
+                note = "Welcome! DataBot is initializing! Please refresh the page in 90 seconds."
+            else:
+                global rasa_interpreter
+                agent = instantiate_agent(rasa_interpreter)
+                note = ""
+
+        return render('databot.html', extra_vars={"note":note})

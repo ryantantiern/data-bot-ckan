@@ -6,10 +6,9 @@ BASE_URL = document.location.href
 
 function submit_query(form){
   /*Entry from DOM*/
-  route = "rasa/user/message"
+  route = "/user/message"
   url = BASE_URL + route
   text = form.elements["user-input"].value
-
   if (text){
     _append(text, true)
 

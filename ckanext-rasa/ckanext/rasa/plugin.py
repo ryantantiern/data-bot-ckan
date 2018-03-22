@@ -1,28 +1,17 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckan.lib.base import BaseController
+from data_bot.main.main import run_initialize_interpreter_job
 
-import time
 import logging
-import cPickle as pkl
-from data_bot.main.main import MODEL_PATH, INTEPRETER_PATH, AGENT_PKL_PATH
-from rasa_core.agent            import Agent
-from rasa_core.interpreter      import RasaNLUInterpreter
-
+import time
 logger = logging.getLogger(__name__)
-
 
 class RasaPlugin(plugins.SingletonPlugin): # Inherits PLugin Singleton Class
 
-    # initialize agent
-    logger.info("Instantiating Rasa Agent")
-    start = time.time()
-    global agent
-    agent = Agent.load(MODEL_PATH, interpreter=RasaNLUInterpreter(INTEPRETER_PATH))    
-    end = time.time()
-    logger.info("Instantiatiation took {} seconds".format(end-start))
+    # Initilize the agent in the background
+    run_initialize_interpreter_job()
 
-    
     plugins.implements(plugins.IConfigurer)
     def update_config(self, config_):
         # Add this plugin's templates dir to CKAN's extra_template_paths, so
@@ -40,11 +29,19 @@ class RasaPlugin(plugins.SingletonPlugin): # Inherits PLugin Singleton Class
     plugins.implements(plugins.IRoutes)
     def after_map(self, map):
         map.connect(
-            "rasa_user_message", # name of path route
-            "/rasa/user/message", # url to map path to
+            "databot_user_message", # name of path route
+            "/databot/user/message", # url to map path to
             controller="ckanext.rasa.controller:RasaPluginController", # controller in rasa/controller.py
             action="send_user_message"
         )
+
+        map.connect(
+            "data_bot", # name of path route
+            "/databot", # url to map path to
+            controller="ckanext.rasa.controller:RasaPluginController", # controller in rasa/controller.py
+            action="databot_index"
+        )
+
         return map
 
     def before_map(self, map):

@@ -25,7 +25,7 @@ class Greet(Action):
 class GoodBye(Action):
     def name(self):
         return 'action_goodbye'
-        
+
 
     def run(self, dispatcher, tracker, domain):
         dispatcher.utter_template(self.name())
@@ -34,7 +34,7 @@ class GoodBye(Action):
 class OfferHelp(Action):
     def name(self):
         return 'action_offer_help'
-        
+
 
     def run(self, dispatcher, tracker, domain):
         dispatcher.utter_template(self.name())
@@ -65,7 +65,7 @@ class Help(Action):
         return 'action_help'
 
     def run(self, dispatcher, tracker, domain):
-     
+
         functions = ",".join(FUNCTIONS)
         message = "Currently I can {}.".format(functions)
         dispatcher.utter_message(message)
@@ -74,14 +74,14 @@ class Help(Action):
 class CheckUnderstanding(Action):
     def name(self):
         return 'action_check_understanding'
-        
+
     def run(self, dispatcher, tracker, domain):
         pass
 
 class ReofferHelp(Action):
     def name(self):
         return 'action_reoffer_help'
-        
+
     def run(self, dispatcher, tracker, domain):
         dispatcher.utter_template(self.name())
         return []

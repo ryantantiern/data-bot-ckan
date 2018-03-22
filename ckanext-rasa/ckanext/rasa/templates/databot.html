@@ -1,12 +1,12 @@
-{% ckan_extends %}
+{% extends 'page.html' %}
 
 {% block styles %}
   {{ super() }}
   {% resource 'rasa/bootstrap.css' %}
   {% resource 'rasa/bootstrap.js' %}
   {% resource 'rasa/jquery-3.3.1.js' %}
-  {% resource 'rasa/style.css' %}
-  {% resource 'rasa/master.js' %}
+  {% resource 'rasa/rasa_style.css' %}
+  {% resource 'rasa/rasa_master.js' %}
 
 
 {% endblock %}
@@ -14,4 +14,8 @@
 {% block meta %}
   {{ super() }}
   <meta name="description" value="My website description" />
+{% endblock %}
+
+{% block main_content %}
+    {% snippet "snippets/chat_interface.html", note=note %}
 {% endblock %}

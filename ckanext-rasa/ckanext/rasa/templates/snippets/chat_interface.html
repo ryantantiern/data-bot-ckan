@@ -4,6 +4,9 @@
 <body>
   <div class="container" id="outer-wrapper">
     <div class="chatbox">
+      {% if note %}
+        <div class="alert alert-primary" role="alert">{{ note }}</div>
+      {% endif %}
       <ul id="chat-start"></ul>
       <ul id="chat-loading"></ul>
     </div>

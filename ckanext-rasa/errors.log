@@ -1,0 +1,58 @@
+18:07:57 RQ worker u'rq:worker:ubuntu-xenial.4121' started, version 0.6.0
+18:07:57 Cleaning registries for queue: databot
+18:07:57 
+18:07:57 *** Listening on [32mdatabot[39;49;00m...
+18:09:00 [32mdatabot[39;49;00m: [34mckanext.rasa.data_bot.main.main.instantiate_agent()[39;49;00m (c29c1de5-46ec-4080-8627-8e46eaa293ed)
+18:10:00 PicklingError: Can't pickle <type 'function'>: attribute lookup __builtin__.function failed
+Traceback (most recent call last):
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/rq/worker.py", line 600, in perform_job
+    job.save(pipeline=pipeline)
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/rq/job.py", line 465, in save
+    connection.hmset(key, self.to_dict())
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/rq/job.py", line 442, in to_dict
+    obj['result'] = dumps(self._result)
+PicklingError: Can't pickle <type 'function'>: attribute lookup __builtin__.function failed
+Traceback (most recent call last):
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/rq/worker.py", line 600, in perform_job
+    job.save(pipeline=pipeline)
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/rq/job.py", line 465, in save
+    connection.hmset(key, self.to_dict())
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/rq/job.py", line 442, in to_dict
+    obj['result'] = dumps(self._result)
+PicklingError: Can't pickle <type 'function'>: attribute lookup __builtin__.function failed
+18:10:00 Moving job to u'failed' queue
+Traceback (most recent call last):
+  File "/usr/lib/ckan/default/bin/rqworker", line 11, in <module>
+    sys.exit(worker())
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/click/core.py", line 722, in __call__
+    return self.main(*args, **kwargs)
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/click/core.py", line 697, in main
+    rv = self.invoke(ctx)
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/click/core.py", line 895, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/click/core.py", line 535, in invoke
+    return callback(*args, **kwargs)
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/rq/cli/cli.py", line 204, in worker
+    w.work(burst=burst)
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/rq/worker.py", line 450, in work
+    self.execute_job(job, queue)
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/rq/worker.py", line 515, in execute_job
+    self.main_work_horse(job, queue)
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/rq/worker.py", line 551, in main_work_horse
+    success = self.perform_job(job, queue)
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/rq/worker.py", line 623, in perform_job
+    self.handle_exception(job, *sys.exc_info())
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/rq/worker.py", line 653, in handle_exception
+    fallthrough = handler(job, *exc_info)
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/rq/worker.py", line 667, in move_to_failed_queue
+    self.failed_queue.quarantine(job, exc_info=exc_string)
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/rq/queue.py", line 438, in quarantine
+    job.save(pipeline=pipeline)
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/rq/job.py", line 465, in save
+    connection.hmset(key, self.to_dict())
+  File "/usr/lib/ckan/default/local/lib/python2.7/site-packages/rq/job.py", line 442, in to_dict
+    obj['result'] = dumps(self._result)
+cPickle.PicklingError: Can't pickle <type 'function'>: attribute lookup __builtin__.function failed
+18:10:16 
+18:10:16 *** Listening on [32mdatabot[39;49;00m...
+18:21:00 Warm shut down requested
