@@ -8,7 +8,7 @@ import os
 import urllib
 import json
 import time
-
+import ckan.plugins.toolkit as toolkit
 from rasa_core.agent                        import Agent
 from rasa_core.interpreter                  import RasaNLUInterpreter
 from rasa_core.tracker_store                import RedisTrackerStore    
@@ -22,23 +22,28 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 MODEL_PATH = os.path.join(dir_path, "models/dialogue")
 INTEPRETER_PATH = os.path.join(dir_path, "models/nlu/default/13_3_2018")
 HOSTNAME = config.get('ckan.site_url')
-
-# Diagnose the problem of slow startup abit more
 REDIS_HOST = "localhost"
 PORT = 6379
 DB = 2
+QS = "databot"
+
+"""
+REDIS_HOST = config.get('ckan.rasa.redis.host')
+PORT = toolkit.asint(config.get('ckan.rasa.redis.port'))
+DB = toolkit.asint(config.get('ckan.rasa.redis.db'))
+QS = config.get('ckan.rasa.rq.qs')
+"""
 
 logger = logging.getLogger(__name__)
 agent, ipreter = None, None
 redis_conn = StrictRedis(host=REDIS_HOST, port=PORT, db=DB)
-q = Queue("databot", connection=redis_conn)
+q = Queue(QS, connection=redis_conn)
 rasa_interpreter = RasaNLUInterpreter(INTEPRETER_PATH, lazy_init=True)
 
 def run_initialize_interpreter_job():
     global ipreter
     # agent = q.enqueue(instantiate_agent)
     ipreter = q.enqueue(_initialize_interpreter)    
-    return ipreter
 
 def _initialize_redis_tracker_store():
     # logger.info("Initializing Redis tracker store")
@@ -91,10 +96,13 @@ def api_get_package_by_tag(tags, limit=5):
         return "Couldn't retrieve datasets."
     
     results = data["result"]["results"]
+    message = _format_results_into_message(results)
+    return message
+
+def _format_results_into_message(results):
     message = ""
     titles = []
     for i in range(len(results)):
         message += str(i+1) + ". " + results[i]["title"] + "\n"
     message = message.rstrip()
     return message
-    

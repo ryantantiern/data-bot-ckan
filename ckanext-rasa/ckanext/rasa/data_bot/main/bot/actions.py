@@ -10,6 +10,8 @@ from rasa_core.actions import Action
 from rasa_core.events  import SlotSet, Restarted, AllSlotsReset
 from ckanext.rasa.data_bot.main.main import api_get_package_by_tag
 
+DEV = True
+
 FUNCTIONS = [
     "source data"
 ]
@@ -22,7 +24,7 @@ class Greet(Action):
         dispatcher.utter_template(self.name())
         return []
 
-class GoodBye(Action):
+class Farewell(Action):
     def name(self):
         return 'action_goodbye'
 
@@ -49,13 +51,18 @@ class SourceData(Action):
         """
         Find data sources that match tags
         """
-        print(tracker.current_state())
         tags = tracker.get_slot('tags')
         limit = tracker.get_slot('limit')
-        message = "Currently I can only support sourcing from 1 tag. Datasets that have tag(s) {}:\n".format(tags)
         if limit is None:
             limit = 5
-        results = api_get_package_by_tag(tags, limit)
+
+        plural = "s" if tags > 1 else ""
+        message = "Searching for datasets that have tag{} {} limited to top {} results:\n".format(plural ,tags, limit)
+        if DEV:
+            results = "1. This is currently in development!"
+            
+        else:
+            results = api_get_package_by_tag(tags, limit)
         message += results
         dispatcher.utter_message(message)
         return []

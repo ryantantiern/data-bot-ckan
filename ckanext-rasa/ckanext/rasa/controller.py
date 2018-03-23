@@ -72,7 +72,7 @@ class RasaPluginController(BaseController):
                 from pprint import pprint as pp
                 pp(ipreter_data)
                 note = "Welcome! DataBot is initializing! Please refresh the page in 90 seconds."
-            else:
+            else: 
                 global rasa_interpreter
                 agent = instantiate_agent(rasa_interpreter)
                 note = ""

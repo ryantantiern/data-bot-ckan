@@ -11,7 +11,7 @@ action_names:
 - action_reset_slots
 actions:
 - ckanext.rasa.data_bot.main.bot.actions.Greet
-- ckanext.rasa.data_bot.main.bot.actions.GoodBye
+- ckanext.rasa.data_bot.main.bot.actions.Farewell
 - ckanext.rasa.data_bot.main.bot.actions.OfferHelp
 - ckanext.rasa.data_bot.main.bot.actions.SourceData
 - ckanext.rasa.data_bot.main.bot.actions.Help
@@ -26,13 +26,13 @@ entities:
 - limit
 intents:
 - greet
-- requestHelp
-- sourceData
-- sourceDataProvideTags
-- bye
+- farewell
 - affirm
 - deny
 - random
+- requestHelp
+- sourceData
+- sourceDataProvideTags
 slots:
   limit:
     initial_value: null

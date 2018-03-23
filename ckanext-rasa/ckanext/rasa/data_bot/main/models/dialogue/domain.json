@@ -1,13 +1,13 @@
 {
   "features": [
     "intent_greet", 
-    "intent_requestHelp", 
-    "intent_sourceData", 
-    "intent_sourceDataProvideTags", 
-    "intent_bye", 
+    "intent_farewell", 
     "intent_affirm", 
     "intent_deny", 
     "intent_random", 
+    "intent_requestHelp", 
+    "intent_sourceData", 
+    "intent_sourceDataProvideTags", 
     "entity_tags", 
     "entity_limit", 
     "slot_limit_0", 

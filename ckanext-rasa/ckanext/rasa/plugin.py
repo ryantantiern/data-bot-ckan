@@ -3,10 +3,6 @@ import ckan.plugins.toolkit as toolkit
 from ckan.lib.base import BaseController
 from data_bot.main.main import run_initialize_interpreter_job
 
-import logging
-import time
-logger = logging.getLogger(__name__)
-
 class RasaPlugin(plugins.SingletonPlugin): # Inherits PLugin Singleton Class
 
     # Initilize the agent in the background

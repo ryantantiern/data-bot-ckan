@@ -2,3 +2,4 @@
 /ckanext-iauthfunctions
 paster.log
 paster.pid
+/ckanext-rasa/rasa/data_bot/main/bot/logs

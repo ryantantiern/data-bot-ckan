@@ -25,7 +25,7 @@ setup(
 
     # Author details
     author='''Ryan''',
-    author_email='''ryan@udl.com''',
+    author_email='''''',
 
     # Choose your license
     license='AGPL',

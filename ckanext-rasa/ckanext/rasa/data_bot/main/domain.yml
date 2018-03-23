@@ -10,17 +10,17 @@ entities:
 
 intents:
   - greet
-  - requestHelp
-  - sourceData
-  - sourceDataProvideTags
-  - bye
+  - farewell
   - affirm
   - deny
   - random
+  - requestHelp
+  - sourceData
+  - sourceDataProvideTags
 
 actions:
   - ckanext.rasa.data_bot.main.bot.actions.Greet
-  - ckanext.rasa.data_bot.main.bot.actions.GoodBye
+  - ckanext.rasa.data_bot.main.bot.actions.Farewell
   - ckanext.rasa.data_bot.main.bot.actions.OfferHelp
   - ckanext.rasa.data_bot.main.bot.actions.SourceData
   - ckanext.rasa.data_bot.main.bot.actions.Help
