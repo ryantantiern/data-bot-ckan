@@ -42,7 +42,7 @@ slots:
     initial_value: null
     type: ckanext.rasa.data_bot.main.extended.ExtendedListSlot
 templates:
-  action_farewell:
+  action_goodbye:
   - text: Thanks for using DataBot. Goodbye!
   - text: Thanks for using DataBot. See you soon.
   action_greet:

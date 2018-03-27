@@ -20,7 +20,7 @@ from rq                                     import Queue
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 MODEL_PATH = os.path.join(dir_path, "models/dialogue")
-INTEPRETER_PATH = os.path.join(dir_path, "models/nlu/default/13_3_2018")
+INTEPRETER_PATH = os.path.join(dir_path, "models/nlu/default/current")
 HOSTNAME = config.get('ckan.site_url')
 REDIS_HOST = "localhost"
 PORT = 6379

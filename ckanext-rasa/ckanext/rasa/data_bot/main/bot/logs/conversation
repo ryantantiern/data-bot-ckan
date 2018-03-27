@@ -1,0 +1,508 @@
+Dialogue with name 'default' and turns:
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: hi, intent: {u'confidence': 0.9447436978460643, u'name': u'greet'}, entities: [])
+
+	BotUttered(text: I'm DataBot. Nice to make your acquaintance. Currently, I can source data. Ask me what I can do for a detailed explaination!
+Please keep messages as unambiguous as possible - I'm still under development by very smart geeks., data: null)
+
+	ActionExecuted(action: action_greet)
+
+	BotUttered(text: What shall we do today?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: what can you do?, intent: {u'confidence': 0.6467858893811954, u'name': u'requestHelp'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: How can I be of assistance?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: find data, intent: {u'confidence': 0.9845403428341477, u'name': u'sourceData'}, entities: [])
+
+	BotUttered(text: Excellent! What data are you searching for?, data: null)
+
+	ActionExecuted(action: action_source_data_prompt_tags)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: economic policy, intent: {u'confidence': 0.5365356308343354, u'name': u'sourceData'}, entities: [{u'start': 0, u'extractor': u'ner_crf', u'end': 8, u'value': u'economic', u'entity': 'tags'}, {u'start': 9, u'extractor': u'ner_crf', u'end': 15, u'value': u'policy', u'entity': 'tags'}])
+
+	SlotSet(key: tags, value: economic)
+
+	SlotSet(key: tags, value: policy)
+
+	BotUttered(text: Searching for datasets that have tags economic policy limited to top 5 results:
+1. This is currently in development!, data: null)
+
+	ActionExecuted(action: action_source_data)
+
+	BotUttered(text: Do you need further assistance?, data: null)
+
+	ActionExecuted(action: action_reoffer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: yes, intent: {u'confidence': 0.7835035966824473, u'name': u'affirm'}, entities: [])
+
+	ActionExecuted(action: action_reset_slots)
+
+	AllSlotsReset()
+
+	BotUttered(text: What shall we do today?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: what can you do?, intent: {u'confidence': 0.6467858893811954, u'name': u'requestHelp'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: How can I be of assistance?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: meh, intent: {u'confidence': 0.7440220681637676, u'name': u'deny'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: How can I be of assistance?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: source information on uk census 2017, intent: {u'confidence': 0.9313998295490783, u'name': u'sourceData'}, entities: [{u'start': 25, u'extractor': u'ner_crf', u'end': 31, u'value': u'census', u'entity': 'tags'}, {u'start': 32, u'extractor': u'ner_crf', u'end': 36, u'value': u'2017', u'entity': 'tags'}])
+
+	SlotSet(key: tags, value: census)
+
+	SlotSet(key: tags, value: 2017)
+
+	BotUttered(text: Searching for datasets that have tags economic policy census 2017 limited to top 5 results:
+1. This is currently in development!, data: null)
+
+	ActionExecuted(action: action_source_data)
+
+	BotUttered(text: Is there anything else I can do for you?, data: null)
+
+	ActionExecuted(action: action_reoffer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: yes, intent: {u'confidence': 0.7835035966824473, u'name': u'affirm'}, entities: [])
+
+	ActionExecuted(action: action_reset_slots)
+
+	AllSlotsReset()
+
+	BotUttered(text: What can I do for you?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: how doy you work, intent: {u'confidence': 0.5562790666564341, u'name': u'requestHelp'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: What shall we do today?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: wasssuppp, intent: {u'confidence': 0.8032295487956985, u'name': u'sourceDataProvideTags'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: What would you like me to do?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: very nice, intent: {u'confidence': 0.6224368790654121, u'name': u'affirm'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: How can I be of assistance?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: hi, intent: {u'confidence': 0.9447436978460643, u'name': u'greet'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: What shall we do today?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: hi, intent: {u'confidence': 0.9447436978460643, u'name': u'greet'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: How can I be of assistance?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: hi, intent: {u'confidence': 0.9447436978460643, u'name': u'greet'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: What can I do for you?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: hi, intent: {u'confidence': 0.9447436978460643, u'name': u'greet'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: What shall we do today?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: hi, intent: {u'confidence': 0.9447436978460643, u'name': u'greet'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: How can I be of assistance?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: hi, intent: {u'confidence': 0.9447436978460643, u'name': u'greet'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: What would you like me to do?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: hi, intent: {u'confidence': 0.9447436978460643, u'name': u'greet'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: What can I do for you?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: hi, intent: {u'confidence': 0.9447436978460643, u'name': u'greet'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: How can I be of assistance?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: hi, intent: {u'confidence': 0.9447436978460643, u'name': u'greet'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: What can I do for you?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: hi, intent: {u'confidence': 0.9447436978460643, u'name': u'greet'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: How can I be of assistance?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: hi, intent: {u'confidence': 0.9447436978460643, u'name': u'greet'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: What can I do for you?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: hi, intent: {u'confidence': 0.9447436978460643, u'name': u'greet'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: What would you like me to do?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: hellow, intent: {u'confidence': 0.7938077839600212, u'name': u'greet'}, entities: [{u'start': 0, u'entity': 'tags', u'end': 6, u'value': u'hellow', u'extractor': u'ner_crf'}])
+
+	SlotSet(key: tags, value: hellow)
+
+	BotUttered(text: Searching for datasets that have tags economic policy census 2017 hellow limited to top 5 results:
+1. This is currently in development!, data: null)
+
+	ActionExecuted(action: action_source_data)
+
+	BotUttered(text: Is there anything else I can do for you?, data: null)
+
+	ActionExecuted(action: action_reoffer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: fasdfasdg, intent: {u'confidence': 0.8032295487956985, u'name': u'sourceDataProvideTags'}, entities: [])
+
+	BotUttered(text: Thanks for using DataBot. See you soon., data: null)
+
+	ActionExecuted(action: action_farewell)
+
+	ActionExecuted(action: action_restart)
+
+	Restarted()
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: goodbye, intent: {u'confidence': 0.8091923106184706, u'name': u'farewell'}, entities: [])
+
+	BotUttered(text: I'm DataBot. Nice to make your acquaintance. Currently, I can source data. Ask me what I can do for a detailed explaination!
+Please keep messages as unambiguous as possible - I'm still under development by very smart geeks., data: null)
+
+	ActionExecuted(action: action_greet)
+
+	BotUttered(text: What can I do for you?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: hello, intent: {u'confidence': 0.7938077839600212, u'name': u'greet'}, entities: [])
+
+	BotUttered(text: Currently I can source data., data: null)
+
+	ActionExecuted(action: action_help)
+
+	BotUttered(text: How can I be of assistance?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: find data, intent: {u'confidence': 0.9845403428341477, u'name': u'sourceData'}, entities: [])
+
+	BotUttered(text: Sure, what are the search terms?, data: null)
+
+	ActionExecuted(action: action_source_data_prompt_tags)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: child health carea dn pollution, intent: {u'confidence': 0.8158185400294142, u'name': u'sourceDataProvideTags'}, entities: [{u'extractor': u'ner_crf', u'end': 5, u'processors': [u'ner_synonyms'], u'value': u'Child', u'entity': 'tags', u'start': 0}, {u'start': 6, u'extractor': u'ner_crf', u'end': 12, u'value': u'health', u'entity': 'tags'}, {u'start': 13, u'extractor': u'ner_crf', u'end': 18, u'value': u'carea', u'entity': 'tags'}, {u'start': 19, u'extractor': u'ner_crf', u'end': 21, u'value': u'dn', u'entity': 'tags'}, {u'start': 22, u'extractor': u'ner_crf', u'end': 31, u'value': u'pollution', u'entity': 'tags'}])
+
+	SlotSet(key: tags, value: Child)
+
+	SlotSet(key: tags, value: health)
+
+	SlotSet(key: tags, value: carea)
+
+	SlotSet(key: tags, value: dn)
+
+	SlotSet(key: tags, value: pollution)
+
+	BotUttered(text: Searching for datasets that have tags Child health carea dn pollution limited to top 5 results:
+1. This is currently in development!, data: null)
+
+	ActionExecuted(action: action_source_data)
+
+	BotUttered(text: Is there anything else I can do for you?, data: null)
+
+	ActionExecuted(action: action_reoffer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: yes, intent: {u'confidence': 0.7835035966824473, u'name': u'affirm'}, entities: [])
+
+	ActionExecuted(action: action_reset_slots)
+
+	AllSlotsReset()
+
+	BotUttered(text: What shall we do today?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: find data on the current latest treneds, intent: {u'confidence': 0.8428479254837798, u'name': u'sourceData'}, entities: [])
+
+	BotUttered(text: Excellent! What data are you searching for?, data: null)
+
+	ActionExecuted(action: action_source_data_prompt_tags)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: lateswt fincnancial treneds, intent: {u'confidence': 0.8032295487956985, u'name': u'sourceDataProvideTags'}, entities: [])
+
+	BotUttered(text: Searching for datasets that have tags Child health carea dn pollution limited to top 5 results:
+1. This is currently in development!, data: null)
+
+	ActionExecuted(action: action_source_data)
+
+	BotUttered(text: Is there anything else I can do for you?, data: null)
+
+	ActionExecuted(action: action_reoffer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: absolutely, intent: {u'confidence': 0.6076751071612116, u'name': u'affirm'}, entities: [])
+
+	ActionExecuted(action: action_reset_slots)
+
+	AllSlotsReset()
+
+	BotUttered(text: How can I be of assistance?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: find data on the latest economic trends, intent: {u'confidence': 0.9193906069004828, u'name': u'sourceData'}, entities: [])
+
+	BotUttered(text: Excellent! What data are you searching for?, data: null)
+
+	ActionExecuted(action: action_source_data_prompt_tags)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: economic trends, intent: {u'confidence': 0.9477115158208413, u'name': u'sourceData'}, entities: [])
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: population and health, intent: {u'confidence': 0.8162810473924776, u'name': u'sourceDataProvideTags'}, entities: [{u'start': 0, u'entity': 'tags', u'end': 10, u'value': u'population', u'extractor': u'ner_crf'}, {u'start': 15, u'entity': 'tags', u'end': 21, u'value': u'health', u'extractor': u'ner_crf'}])
+
+	SlotSet(key: tags, value: population)
+
+	SlotSet(key: tags, value: health)
+
+	BotUttered(text: Searching for datasets that have tags Child health carea dn pollution population health limited to top 5 results:
+1. This is currently in development!, data: null)
+
+	ActionExecuted(action: action_source_data)
+
+	BotUttered(text: Is there anything else I can do for you?, data: null)
+
+	ActionExecuted(action: action_reoffer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: no, intent: {u'confidence': 0.9808546980729292, u'name': u'deny'}, entities: [])
+
+	BotUttered(text: Thanks for using DataBot. Goodbye!, data: null)
+
+	ActionExecuted(action: action_farewell)
+
+	ActionExecuted(action: action_restart)
+
+	Restarted()
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: hi, intent: {u'confidence': 0.9447436978460643, u'name': u'greet'}, entities: [])
+
+	BotUttered(text: Hello there, I'm DataBot! Currently, I can source data. Ask me what I can do for a detailed explaination!
+Please keep messages as unambiguous as possible - I'm still under development by very smart geeks., data: null)
+
+	ActionExecuted(action: action_greet)
+
+	BotUttered(text: What can I do for you?, data: null)
+
+	ActionExecuted(action: action_offer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: find data on population health, intent: {u'confidence': 0.9535172332223087, u'name': u'sourceData'}, entities: [{u'start': 13, u'extractor': u'ner_crf', u'end': 23, u'value': u'population', u'entity': 'tags'}, {u'start': 24, u'extractor': u'ner_crf', u'end': 30, u'value': u'health', u'entity': 'tags'}])
+
+	SlotSet(key: tags, value: population)
+
+	SlotSet(key: tags, value: health)
+
+	BotUttered(text: Searching for datasets that have tags population health limited to top 5 results:
+1. This is currently in development!, data: null)
+
+	ActionExecuted(action: action_source_data)
+
+	BotUttered(text: Is there anything else I can do for you?, data: null)
+
+	ActionExecuted(action: action_reoffer_help)
+
+	ActionExecuted(action: action_listen)
+
+	UserUttered(text: no, intent: {u'confidence': 0.9808546980729292, u'name': u'deny'}, entities: [])
+
+	BotUttered(text: Thanks for using DataBot. Goodbye!, data: null)
+
+	ActionExecuted(action: action_farewell)
+
+	ActionExecuted(action: action_restart)
+
+	Restarted()
+
+	ActionExecuted(action: action_listen)

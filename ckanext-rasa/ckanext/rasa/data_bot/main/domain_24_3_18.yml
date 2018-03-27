@@ -1,6 +1,6 @@
 slots:
   tags:
-      type: ckanext.rasa.data_bot.main.extended.ExtendedListSlot
+      type: list
   limit:
       type: text
 
@@ -13,6 +13,7 @@ intents:
   - farewell
   - affirm
   - deny
+  - random
   - requestHelp
   - sourceData
   - sourceDataProvideTags
@@ -23,18 +24,17 @@ actions:
   - ckanext.rasa.data_bot.main.bot.actions.OfferHelp
   - ckanext.rasa.data_bot.main.bot.actions.SourceData
   - ckanext.rasa.data_bot.main.bot.actions.Help
-  - ckanext.rasa.data_bot.main.bot.actions.ClarifyUnderstanding
+  - ckanext.rasa.data_bot.main.bot.actions.CheckUnderstanding
   - ckanext.rasa.data_bot.main.bot.actions.ReofferHelp
   - ckanext.rasa.data_bot.main.bot.actions.SourceDataPromptTags
   - ckanext.rasa.data_bot.main.bot.actions.ResetSlots
-  - ckanext.rasa.data_bot.main.bot.actions.GiveUp
 
 templates:
   action_greet:
-    - "Hi, I'm DataBot! Currently, I can source data. Ask me what I can do for a detailed explaination!\nPlease keep messages as unambiguous as possible - I'm still under development by very smart geeks."
-    - "Hello there, I'm DataBot! Currently, I can source data. Ask me what I can do for a detailed explaination!\nPlease keep messages as unambiguous as possible - I'm still under development by very smart geeks."
-    - "I'm DataBot. Nice to make your acquaintance. Currently, I can source data. Ask me what I can do for a detailed explaination!\nPlease keep messages as unambiguous as possible - I'm still under development by very smart geeks."
-  action_farewell:
+    - "Hi, I'm DataBot!"
+    - "Hello there, I'm DataBot!"
+    - "I'm DataBot. Nice to make your acquaintance."
+  action_goodbye:
     - "Thanks for using DataBot. Goodbye!"
     - "Thanks for using DataBot. See you soon."
   action_offer_help:
@@ -49,7 +49,8 @@ templates:
     - "Sure, what are the search terms?"
   action_reoffer_help:
     - "Is there anything else I can do for you?"
-    - "Do you need further assistance?"
+    - "How else can I help you?"
+
 
 
 
