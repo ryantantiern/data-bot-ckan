@@ -9,13 +9,13 @@ function submit_query(form){
   route = "/user/message"
   url = BASE_URL + route
   text = form.elements["user-input"].value
-  if (text){
+  if (!is_malicios_text(text)){
     _append(text, true)
 
     chatbox.animate({scrollTop: chat_start.height() }, "slow")
 
-    $(document).ajaxStart(function(){
-    }).ajaxStop(function(){
+    $(document).ajaxStart(function () {
+    }).ajaxStop(function () {
     })
 
     $("#user-input").val('')
@@ -25,6 +25,14 @@ function submit_query(form){
       handle_request_error
     )
   }
+}
+function is_malicios_text(text) {
+  if (text.length < 2){
+    _append("Message should be atleast 2 characters long. Plesae avoid using abbreviations.")
+    return true
+  }
+  
+  return false
 }
 
 function _append(text, is_human){
@@ -36,7 +44,7 @@ function _append(text, is_human){
 // Bot responses
 
 function handle_request_error(response){
-  _append("ERROR 404: something went seriously wrong", false)
+  _append("We're really sorry, DataBot couldn't process your message. This means the Rasa extension that hosts databot is down. Please report this to system administrators.", false)
 }
 
 
@@ -50,7 +58,7 @@ function bot_response(response){
   for (i in response["bot"]) {
     _append(response["bot"][i], false)
   }
-  // _append(response["bot"], false)
+  
 }
 
 // AJAX using promises
@@ -81,7 +89,8 @@ function format_incoming_message(text, is_human){
   return {
     payload: text,
     time: time,
-    human: ((is_human) ? "human" : "bot")
+    human: ((is_human) ? "human" : "bot"),
+    
   }
 }
 

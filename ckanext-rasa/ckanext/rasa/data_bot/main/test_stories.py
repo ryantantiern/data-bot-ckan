@@ -1,5 +1,4 @@
-import unittest
-from unittest import TestCase
+from unittest import TestCase, main
 import os.path as path
 from ckanext.rasa.data_bot.main.main import INTEPRETER_PATH, MODEL_PATH
 from rasa_core.interpreter import RasaNLUInterpreter
@@ -74,7 +73,7 @@ class TestStoriesChatFlow(TestCase):
 		response = self.agent.handle_message(m, sender_id="default")
 		self.assertEqual(response[0], "Searching for datasets that have tags london transport limited to top 8 results:\n1. This is currently in development!")
 		self.agent.tracker_store.get_or_create_tracker("default").update(Restarted())
-	
+
 
 if __name__ == "__main__":
-	unittest.main()
+	main()

@@ -5,8 +5,8 @@ import logging
 import ckan.plugins
 from ckan.common import request, response, session
 from ckan.lib.base import BaseController, render
-from data_bot.main.main import agent, run_initialize_interpreter_job, instantiate_agent, ipreter, rasa_interpreter
-from rasa_core.agent import Agent
+from data_bot.main.main import instantiate_agent, agent
+from ckanext.rasa.data_bot.main.extended import ExtendedAgent
 
 logger = logging.getLogger(__name__)
 
@@ -15,12 +15,19 @@ def get_response_from_rasa(text):
         # Prevents pylon from assigning a new session id to this user
         session["sender_id"] = session.id
         session.save()
-    try:
-        # handle incoming message
-        response = agent.handle_message(text, sender_id=session["sender_id"])
-    except Exception:
-        logger.exception("Handling error in get_response_from_rasa")
-        return 
+
+    # Bot's response is a list
+    global agent
+
+    if not isinstance(agent, ExtendedAgent):
+        response = ["Bot hasn't loaded yet - please try again in a few moments."]
+    else:
+        try:
+            # handle incoming message
+            response = agent.handle_message(text, sender_id=session["sender_id"])
+        except Exception:
+            logger.exception("Handling error in get_response_from_rasa")
+            return 
     return response
 
 
@@ -42,39 +49,24 @@ class RasaPluginController(BaseController):
         bot_response = get_response_from_rasa(request_body["text"])
         if not bot_response:
             body["error"] = True
-            bot_response = "Something went wrong. Terminating and restarting..."
-
+            bot_response = "DataBot didn't get any response. UDL CKAN server is probably down. Please report this to system administrators."
         body["bot"] = bot_response
         response.body = json.dumps(body)
         return
 
     def databot_index(self):
         
-        global ipreter
         global agent
-        
-        # Job isn't running
-        if ipreter is None:
-            note = "The DataBot had failed to initialize. Re-initializing DataBot. Please refresh the page in 90 seconds"
-            run_initialize_interpreter_job()
-        
-        elif isinstance(agent, Agent):
-            note = ""
-
-        # Agent is still a Job object
-        elif hasattr(ipreter, "result"): 
-            
-            # Handle case load has failed
-
-            if ipreter.result is None:
-                # Agent hasn't finished loading
-                ipreter_data = ipreter.to_dict()
-                from pprint import pprint as pp
-                pp(ipreter_data)
-                note = "Welcome! DataBot is initializing! Please refresh the page in 90 seconds."
-            else: 
-                global rasa_interpreter
-                agent = instantiate_agent(rasa_interpreter)
+        note = ""
+        print(agent)
+        print(agent.interpreter.interpreter)
+        if isinstance(agent, ExtendedAgent):
+            if  agent.interpreter.interpreter is not None:
                 note = ""
+            else:
+                note = "It will take around 90 seconds for DataBot to respond to your first message. Please do not refresh until the bot responds. Thank you for waiting! "
+        else:
+            agent = instantiate_agent()
+            note = "It will take around 90 seconds for DataBot to respond to your first message. Please do not refresh until the bot responds. Thank you for waiting! "
 
         return render('databot.html', extra_vars={"note":note})

@@ -1,12 +1,28 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+import logging
 from ckan.lib.base import BaseController
-from data_bot.main.main import run_initialize_interpreter_job
+from data_bot.main.main import dir_path
+import os.path as path
+
+# Setup all logging
+
+# log = logging.getLogger("rasa logs")
+# log.setLevel(logging.DEBUG)
+# fh = logging.FileHandler(path.join(dir_path, "bot/logs/rasa_core.log"))
+# fh.setLevel(logging.DEBUG)
+# fh2 = logging.FileHandler(path.join(dir_path, "bot/logs/rasa_core.log"))
+# fh2.setLevel(logging.INFO)
+# log.addHandler(fh)
+# log.addHandler(fh2)
+
+# warning_logger = logging.getLogger("py.warning")
+# warning_fh = logging.FileHandler(path.join(dir_path, "bot/logs/warnings.log"))
+# warning_fh.setLevel(logging.WARNING)    
+# warning_logger.addHandler(warning_fh)
+
 
 class RasaPlugin(plugins.SingletonPlugin): # Inherits PLugin Singleton Class
-
-    # Initilize the agent in the background
-    run_initialize_interpreter_job()
 
     plugins.implements(plugins.IConfigurer)
     def update_config(self, config_):

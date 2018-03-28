@@ -9,11 +9,36 @@ from rasa_core.dispatcher import Dispatcher
 from rasa_core.actions.action import ActionListen
 from rasa_core.slots import DataSlot
 from rasa_core.events import UserUttered
+from rasa_core.tracker_store import RedisTrackerStore    
+from rasa_core.domain import TemplateDomain
 import os.path as path
 import json
 import csv
+import logging
+
 DIR = path.dirname(path.realpath(__file__))
-CONVO_STATES_PATH = path.join(DIR, "bot/states/logs")
+CONVO_STATES_PATH = path.join(DIR, "bot/states/")
+
+logger = logging.getLogger(__name__)
+
+class ExtendedRedisTrackerStore(RedisTrackerStore):
+    def __init__(self, domain, mock=False, host='localhost',
+                 port=6379, db=2, password=None, timeout=None):
+        self.timeout = timeout
+        super(ExtendedRedisTrackerStore, self).__init__(domain, mock, host, port, db, password)
+
+    def save(self, tracker, timeout=None):
+        timeout = self.timeout
+        serialised_tracker = RedisTrackerStore.serialise_tracker(tracker)
+        self.red.set(tracker.sender_id, serialised_tracker, ex=timeout)
+
+    def retrieve(self, sender_id):
+        stored = self.red.get(sender_id)
+        if stored is not None:
+            self.red.expire(sender_id, self.timeout)
+            return self.deserialise_tracker(sender_id, stored)
+        else:
+            return None
 
 class ExtendedAgent(Agent):
 
@@ -57,8 +82,12 @@ class StatisticalMessageProcessor(MessageProcessor):
             self._save_tracker(tracker)
 
         # Log tracker into file
-        Statistics.log_state(CONVO_STATES_PATH, tracker)
+        # try:
+        #     Statistics.log_state(CONVO_STATES_PATH, tracker)
+        # except IOError as e:
+        #     logger.exception("Don't have permissions to write to file")
 
+        # finally:
         if isinstance(message.output_channel, CollectingOutputChannel):
             return [outgoing_message
                     for _, outgoing_message in message.output_channel.messages]
@@ -71,7 +100,7 @@ class StatisticalMessageProcessor(MessageProcessor):
         Sets the next action to action_name then execute
         :param action_name: String
         :param tracker: DialogueStateTracker
-        :return:
+        :return: void
         """
         # this will actually send the response to the user
 
@@ -85,6 +114,7 @@ class StatisticalMessageProcessor(MessageProcessor):
         self._run_action(ActionListen(), tracker, dispatcher)
 
 class Statistics(object):
+    
     @staticmethod
     def log_state(dir_path, tracker):
         filepath = path.join(dir_path, tracker.sender_id + ".log")

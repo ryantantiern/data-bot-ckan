@@ -7,13 +7,13 @@ import logging
 import os
 import urllib
 import json
-import time
+import re
+import unicodedata
 import ckan.plugins.toolkit as toolkit
-from rasa_core.agent                        import Agent
 from rasa_core.interpreter                  import RasaNLUInterpreter
 from rasa_core.tracker_store                import RedisTrackerStore    
 from rasa_core.domain                       import TemplateDomain
-from ckanext.rasa.data_bot.main.bot.utils   import ExtendedRedisTrackerStore
+from ckanext.rasa.data_bot.main.extended    import ExtendedRedisTrackerStore, ExtendedAgent
 from ckan.common                            import config
 from redis                                  import StrictRedis
 from rq                                     import Queue
@@ -21,7 +21,7 @@ from rq                                     import Queue
 dir_path = os.path.dirname(os.path.realpath(__file__))
 MODEL_PATH = os.path.join(dir_path, "models/dialogue")
 INTEPRETER_PATH = os.path.join(dir_path, "models/nlu/default/current")
-HOSTNAME = config.get('ckan.site_url')
+HOSTNAME = "http://udltest1.cs.ucl.ac.uk/" # config.get('ckan.site_url')
 REDIS_HOST = "localhost"
 PORT = 6379
 DB = 2
@@ -35,74 +35,86 @@ QS = config.get('ckan.rasa.rq.qs')
 """
 
 logger = logging.getLogger(__name__)
-agent, ipreter = None, None
 redis_conn = StrictRedis(host=REDIS_HOST, port=PORT, db=DB)
-q = Queue(QS, connection=redis_conn)
-rasa_interpreter = RasaNLUInterpreter(INTEPRETER_PATH, lazy_init=True)
+all_chars = (unichr(i) for i in xrange(0x110000))
+control_chars = ''.join(c for c in all_chars if unicodedata.category(c) == 'Cc')
+control_chars = ''.join(map(unichr, range(0, 32) + range(127, 160)))
+control_char_re = re.compile('[%s]'% re.escape(control_chars))
+agent = None
 
-def run_initialize_interpreter_job():
-    global ipreter
-    # agent = q.enqueue(instantiate_agent)
-    ipreter = q.enqueue(_initialize_interpreter)    
-
-def _initialize_redis_tracker_store():
-    # logger.info("Initializing Redis tracker store")
+def _initialize_redis_tracker_store(mock):
     domain = TemplateDomain.load(os.path.join(MODEL_PATH, "domain.yml"))
-    redis_tracker_store = ExtendedRedisTrackerStore(domain, db=2, timeout=900)   
-    # logger.info("Initialization of Redis tracker store complete")     
+    redis_tracker_store = ExtendedRedisTrackerStore(domain, db=2, timeout=900, mock=mock)   
     return redis_tracker_store
 
-def _initialize_interpreter():
-    rasa_interpreter._load_interpreter()
-    return 1
-
-def instantiate_agent(interpreter):
-    tracker_store = _initialize_redis_tracker_store()    
-    agent = Agent.load(MODEL_PATH, interpreter=interpreter, tracker_store=tracker_store) 
+def instantiate_agent(mock=False):
+    global agent
+    tracker_store = _initialize_redis_tracker_store(mock)
+    rasa_interpreter = RasaNLUInterpreter(INTEPRETER_PATH, lazy_init=True)        
+    agent = ExtendedAgent.load(MODEL_PATH, interpreter=rasa_interpreter)
+    agent.tracker_store = tracker_store
     return agent
-
-"""
-There are 2 problems.
-(1) during dev, data is queries using rest api whilst in prod, data is queried using 
-ckan api
-(2) when shifting from dev to prod, need to change data pipeline
-
-solution:
-(1) split the pipeline into 2 parts. The first retrieves raw data and returns dict. 
-(2) the second takes the dict and does manipultation. 
-
-that way, I only define (2) once, and add 2 new data pipelines (1 for dev, 1 for prod)
-for each feature. 
-"""
 
 def api_get_data(url):
     url = urllib.quote(url, safe=":/?=&")
-    print(url)
     read = urllib.urlopen(url).read()
     return json.loads(read)
 
 def api_get_package_by_tag(tags, limit=5):
     # Tags should be a string of tags, space seperated
+    search_limit = int(limit) + 10
     if not tags:
         return "No datasets found"
     try:
-        action = "package_search?fq=tags:   {}&rows={}".format(tags, limit)
+        action = 'api/action/package_search?q={}&rows={}'.format(tags, search_limit)
         data = api_get_data(HOSTNAME + action)
+    except IOError as e:
+        logger.exception("Handling IOerror in api_get_package_by_tag(). tags: {}, limit: {}".format(tags, limit))
+        return "Your request timed out while connecting to UDL's database. This means their server is down. Please report this to system administrators."
     except Exception as e:
-        logger.exception("Handling error in api_get_package_by_tag(). tags: {}, limit: {}".format(tags, str(limit)))
-        return "No datasets found"
+        logger.exception("Handling error in api_get_package_by_tag(). tags: {}, limit: {}".format(tags, limit))
+        return "An error had occured while processing your request. Please report the following to system administrators:/n {}: {}".format(e.errno, e.strerror)
 
     if not data["success"] or data["result"]["count"] == 0:
-        return "Couldn't retrieve datasets."
+        return "No matching packages found"
     
     results = data["result"]["results"]
+    results = _filter_num_resources(results, int(limit))
+
+    # results is dict. need to be converted into list
     message = _format_results_into_message(results)
     return message
 
-def _format_results_into_message(results):
-    message = ""
-    titles = []
+def _filter_num_resources(results, limit):
+    # Filter results that have no resource
+    res = []
     for i in range(len(results)):
-        message += str(i+1) + ". " + results[i]["title"] + "\n"
-    message = message.rstrip()
+        if results[i]["num_resources"] > 0:
+            res.append(results[i])
+            limit -= 1
+        if limit == 0: return res
+    return res
+
+
+def _strip_data(results):
+    res = []
+    for r in results:
+        d = {}
+        d["t"] = "Title: " + _remove_control_chars(r["title"])
+        d["nr"]= "Num of resources: " + str(r["num_resources"])
+        d["o"] = "Organization: " + _remove_control_chars(r["organization"]["title"])
+        res.append(d)
+    return res
+
+def _format_results_into_message(results):
+    data = _strip_data(results)
+    message = ""
+    for i, d in enumerate(data):
+        sent = "\n".join([d["t"], d["o"]])
+        message += "\n" + str(i + 1) + ". " + sent +"\n"
     return message
+
+def _remove_control_chars(s):
+    return control_char_re.sub('', s)
+
+instantiate_agent()

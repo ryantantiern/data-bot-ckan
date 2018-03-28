@@ -10,13 +10,11 @@ from rasa_core.actions import Action
 from rasa_core.events  import SlotSet, Restarted, AllSlotsReset
 from ckanext.rasa.data_bot.main.main import api_get_package_by_tag
 
-DEV = True
+DEV = False
 
 FUNCTIONS = [
-    "source data"
+    "(1) Source data - Return datasets that are related to a given search term. An optional limit can be provided to constraint that number of results returned, defaults to 5. e.g.'Find data relating to population and pollution 2016', 'get child health care policy datasets limited to 20 results.'"
 ]
-
-
 
 class Greet(Action):
     def name(self):
@@ -60,10 +58,9 @@ class SourceData(Action):
 
         formatted_tags = ' '.join(tags)
         plural = "s" if len(tags) > 1 else ""
-        message = "Searching for datasets that have tag{} {} limited to top {} results:\n".format(plural ,formatted_tags, limit)
+        message = "Searching for packages with term{} {} limited to top {} results:\n".format(plural ,formatted_tags, limit)
         if DEV:
             results = "1. This is currently in development!"
-            
         else:
             results = api_get_package_by_tag(formatted_tags, limit)
         message += results
@@ -77,7 +74,7 @@ class Help(Action):
     def run(self, dispatcher, tracker, domain):
 
         functions = ",".join(FUNCTIONS)
-        message = "Currently I can {}.".format(functions)
+        message = "Currently I can: \n{}.".format(functions)
         dispatcher.utter_message(message)
         return
 
@@ -89,7 +86,7 @@ class ClarifyUnderstanding(Action):
         # get latest user message parse data
         print(tracker.latest_message.parse_data)
         name = tracker.latest_message.parse_data["intent"]["name"]
-        response = "I couldn't clarify your message. Please report this issue to my maintainers. Type '/reset' and start again.\n[For the maintainers of DataBot] Cannot clarify understanding for intent {} because the appropriate response has not yet been defined. Implement appropriate response in action ClarifyUnderstanding.".format(name)
+        response = "I couldn't clarify your message. Please report this issue to my maintainers. Type '/stop' and start again.\n[For the maintainers of DataBot] Cannot clarify understanding for intent {} because the appropriate response has not yet been defined. Implement appropriate response in action ClarifyUnderstanding.".format(name)
 
         # Respond differently for each intent, must be binary question
         if name == "greet":
