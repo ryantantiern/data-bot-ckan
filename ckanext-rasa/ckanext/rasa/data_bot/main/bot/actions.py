@@ -1,3 +1,5 @@
+ #!/usr/lib/ckan/default/bin python -W ignore::DeprecationWarning
+
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -51,6 +53,12 @@ class SourceData(Action):
         """
         Find data sources that match tags
         """
+        message = self._my_func(dispatcher, tracker, domain)
+        dispatcher.utter_message(message)
+        return []
+
+    def _my_func(self, dispatcher, tracker, domain):
+        # Encapsulate logic for the sake of testing
         tags = tracker.get_slot('tags')
         limit = tracker.get_slot('limit')
         if limit is None:
@@ -64,8 +72,8 @@ class SourceData(Action):
         else:
             results = api_get_package_by_tag(formatted_tags, limit)
         message += results
-        dispatcher.utter_message(message)
-        return []
+        return message
+
 
 class Help(Action):
     def name(self):
@@ -126,7 +134,6 @@ class GiveUp(Action):
         return 'action_give_up'
 
     def run(self, dispatcher, tracker, domain):
-        print(tracker.latest_message.parse_data)
         message = "I'm still trying to understanding humans - try structuring your message in a different way. "
 
         # Do not add GiveUp to tracker, and remove all events until last action listen <- so bot will listen after this
@@ -155,4 +162,5 @@ class ResetSlots(object):
         return 'action_reset_slots'
 
     def run(self, dispatcher, tracker, domain):
+        print("Slots reset")
         return [(AllSlotsReset())]

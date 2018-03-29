@@ -1,3 +1,4 @@
+ #!/usr/lib/ckan/default/bin python -W ignore::DeprecationWarning
 from unittest import TestCase, main
 import os.path as path
 from ckanext.rasa.data_bot.main.main import INTEPRETER_PATH, MODEL_PATH
@@ -17,7 +18,7 @@ class TestStoriesChatFlow(TestCase):
 		self.templates_offer_help =  [data["text"] for data in self.domain.templates["action_offer_help"]]
 		self.templates_greet = [data["text"] for data in self.domain.templates["action_greet"]]
 		self.templates_help = [
-			"Currently I can source data."
+    			"Currently I can: \n(1) Source data - Return datasets that are related to a given search term. An optional limit can be provided to constraint that number of results returned, defaults to 5. e.g.'Find data relating to population and pollution 2016', 'get child health care policy datasets limited to 20 results.'."
 		]
 		self.templates_source_data_prompt_tags = [data["text"] for data in self.domain.templates["action_source_data_prompt_tags"]]
 		self.templates_reoffer_help = [data["text"] for data in self.domain.templates["action_reoffer_help"]]
@@ -59,7 +60,7 @@ class TestStoriesChatFlow(TestCase):
 		for c in context:
 			x = self.agent.handle_message(c, sender_id="default")
 		response = self.agent.handle_message(m, sender_id="default")
-		self.assertEqual(response[0], "Searching for datasets that have tag london limited to top 8 results:\n1. This is currently in development!")
+		self.assertEqual(response[0], "Searching for packages with term london limited to top 8 results:\n1. This is currently in development!")
 		self.assertIn(response[1], self.templates_reoffer_help)
 		self.agent.tracker_store.get_or_create_tracker("default").update(Restarted())
 
@@ -71,7 +72,7 @@ class TestStoriesChatFlow(TestCase):
 		for c in context:
 			x = self.agent.handle_message(c, sender_id="default")
 		response = self.agent.handle_message(m, sender_id="default")
-		self.assertEqual(response[0], "Searching for datasets that have tags london transport limited to top 8 results:\n1. This is currently in development!")
+		self.assertEqual(response[0], "Searching for packages with terms london transport limited to top 8 results:\n1. This is currently in development!")
 		self.agent.tracker_store.get_or_create_tracker("default").update(Restarted())
 
 

@@ -1,3 +1,5 @@
+ #!/usr/lib/ckan/default/bin python -W ignore::DeprecationWarning
+
 import json
 import time
 import logging
@@ -15,19 +17,19 @@ def get_response_from_rasa(text):
         # Prevents pylon from assigning a new session id to this user
         session["sender_id"] = session.id
         session.save()
-
-    # Bot's response is a list
     global agent
 
+    # Server threads loaded main.py yet
     if not isinstance(agent, ExtendedAgent):
         response = ["Bot hasn't loaded yet - please try again in a few moments."]
+
     else:
         try:
-            # handle incoming message
+            # Let Rasa Agent handle incoming message
             response = agent.handle_message(text, sender_id=session["sender_id"])
         except Exception:
             logger.exception("Handling error in get_response_from_rasa")
-            return 
+            return ["The Bot Engine has failed and further requests to DataBot would be inconsistent. Sorry for the inconvenience."]
     return response
 
 

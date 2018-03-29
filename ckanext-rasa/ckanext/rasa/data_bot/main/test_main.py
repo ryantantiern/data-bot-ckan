@@ -1,3 +1,4 @@
+ #!/usr/lib/ckan/default/bin python -W ignore::DeprecationWarning
 # -*- coding: UTF-8 -*-
 from __future__ import unicode_literals
 from unittest import TestCase, main, skipIf

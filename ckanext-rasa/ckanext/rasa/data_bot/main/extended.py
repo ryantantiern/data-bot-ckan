@@ -1,3 +1,4 @@
+ #!/usr/lib/ckan/default/bin python -W ignore::DeprecationWarning
 """
 Extends rasa_core clases to record data suitable for creating training data(NLU and Stories),
 and gather statistics
@@ -155,6 +156,10 @@ class ExtendedListSlot(DataSlot):
                 self.__dict__[name].append(val)
         else:
             self.__dict__[name] = val
+
+    def reset(self):
+        while len(self.value) > 0:
+            self.value.pop()
 
     def as_feature(self):
         try:
