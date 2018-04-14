@@ -10,9 +10,8 @@ from pprint import pprint
 
 from rasa_core.actions import Action
 from rasa_core.events  import SlotSet, Restarted, AllSlotsReset
-from ckanext.rasa.data_bot.main.main import api_get_package_by_tag
 
-DEV = False
+DEV = True
 
 FUNCTIONS = [
     "(1) Source data - Return datasets that are related to a given search term. An optional limit can be provided to constraint that number of results returned, defaults to 5. e.g.'Find data relating to population and pollution 2016', 'get child health care policy datasets limited to 20 results.'"
@@ -53,26 +52,7 @@ class SourceData(Action):
         """
         Find data sources that match tags
         """
-        message = self._my_func(dispatcher, tracker, domain)
-        dispatcher.utter_message(message)
         return []
-
-    def _my_func(self, dispatcher, tracker, domain):
-        # Encapsulate logic for the sake of testing
-        tags = tracker.get_slot('tags')
-        limit = tracker.get_slot('limit')
-        if limit is None:
-            limit = 5
-
-        formatted_tags = ' '.join(tags)
-        plural = "s" if len(tags) > 1 else ""
-        message = "Searching for packages with term{} {} limited to top {} results:\n".format(plural ,formatted_tags, limit)
-        if DEV:
-            results = "1. This is currently in development!"
-        else:
-            results = api_get_package_by_tag(formatted_tags, limit)
-        message += results
-        return message
 
 
 class Help(Action):

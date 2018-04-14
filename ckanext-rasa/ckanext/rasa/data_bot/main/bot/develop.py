@@ -19,7 +19,7 @@ import rasa_core.utils as utils
 
 DOMAIN_FILE = path.join(dir_path, "domain.yml")
 STORIES = path.join(dir_path, "data/stories.md")
-NLU_DATA = path.join(dir_path, "data/data.json")
+NLU_DATA = path.join(dir_path, "data/data-new-1.json")
 CONFIG_PATH = path.join(dir_path, "nlu_config.json")
 
 #INTEPRETER_PATH = path.join(dir_path, "bot/models/nlu/default/current")
@@ -30,7 +30,7 @@ def train_nlu():
     training_data = load_data(NLU_DATA)
     trainer = Trainer(RasaNLUConfig(CONFIG_PATH))
     trainer.train(training_data)
-    model_directory = trainer.persist('models/nlu', fixed_model_name="current")
+    model_directory = trainer.persist('models/nlu', fixed_model_name="new-1")
 
 def train_dialogue(domain_file=DOMAIN_FILE, model_path=MODEL_PATH, training_data_file=STORIES):
     agent = ExtendedAgent(domain=TemplateDomain.load(domain_file), policies=[SklearnPolicy()])

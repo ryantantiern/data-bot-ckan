@@ -9,24 +9,29 @@ function submit_query(form){
   route = "/user/message"
   url = BASE_URL + route
   text = form.elements["user-input"].value
-  if (!is_malicios_text(text)){
+
+  if (!is_malicious_text(text)) {
+    
     _append(text, true)
 
     chatbox.animate({scrollTop: chat_start.height() }, "slow")
 
     $(document).ajaxStart(function () {
+      // Loader goes in here
+
     }).ajaxStop(function () {
+
     })
 
     $("#user-input").val('')
-    // Make AJAX request. Check that not wewaiting for AJAX request, otherwise void input
+    // Make AJAX request. Check that not we are not waiting for AJAX request, otherwise void input
     response = send_user_message(url, "POST", text).then(
       bot_response,
       handle_request_error
     )
   }
 }
-function is_malicios_text(text) {
+function is_malicious_text(text) {
   if (text.length < 2){
     _append("Message should be atleast 2 characters long. Plesae avoid using abbreviations.")
     return true
@@ -35,55 +40,101 @@ function is_malicios_text(text) {
   return false
 }
 
-function _append(text, is_human){
-  message = format_incoming_message(text, is_human)
-  li = construct_li(message)
-  $("#chat-start").append(li)
-}
+
 
 // Bot responses
 
-function handle_request_error(response){
+function handle_request_error(response) {
+  console.log(response)
   _append("We're really sorry, DataBot couldn't process your message. This means the Rasa extension that hosts databot is down. Please report this to system administrators.", false)
 }
 
-
-function bot_response(response){
+function bot_response(response) {
+  /**
+   * Handles the returned data recursively. Data object
+   * can either be of type "string", "list", or "*_object".
+   * Each custom "*_object" type needs its own handler
+   * 
+   * response: Data object
+   * 
+   */
+  response = response["bot"]
   console.log(response)
-  if (response["error"]){
-    // Handle error
+  if ($.isEmptyObject(response)) { 
+    _append("No data received from CKAN server. Sorry about that!")
     return
   }
-  // Bot's response is a list
-  for (i in response["bot"]) {
-    _append(response["bot"][i], false)
+  handle_stack = [response]
+  while (handle_stack.length > 0) {
+    resp = handle_stack.pop()
+    if (resp["type"] == "string") {
+      _append(resp["data"], false)
+    }
+    else if (resp["type"] == "list") {
+      for (i = resp["data"].length - 1; i > -1; i--) {
+        resp["data"][i]["index"] = i
+        handle_stack.push(resp["data"][i])
+      }
+    }
+    else if (resp["type"] == "source_data_object") {
+      message = format_source_data_object(resp)
+      _append(message, false)
+    }
+    else {
+      _append("CKAN controller returned a format that's undecipherable. Sorry about that!", false)
+    }
   }
-  
 }
 
-// AJAX using promises
+function format_source_data_object(data) {
+  /**
+   * Converts a SourceData object into a string
+   * 
+   * data: SourceData 
+   */
+  index = data["index"]
+  organization = "Organization: " + data["org"]
+  num_of_resources = "No. of resources: " + data["num_of_resources"]
+  title = "Title: " + data["title"]
+  message = index + ". " + title + "<br>" + organization + "<br>" + num_of_resources
+  return message
+}
 
-function send_user_message(url, methodType, text){
+
+function send_user_message(url, methodType, text) {
+  /**
+   * Sends an AJAX request to url with the method:methodType 
+   * and payload:text. AJAX uses Promises. 
+   * 
+   * url: Str
+   * methodType: Str
+   * text: Str
+   */
   data = {
     "text" : text
   }
+  console.log("Sending message to: " + url)
   return $.ajax({
     url: url,
     method: methodType,
     data: JSON.stringify(data),
     contentType: "application/json",
-    dataType: "json"
+    dataType: "json",
+    timeout: 5000
   })
 }
 
 
 // Format incoming messages
-
-function format_incoming_message(text, is_human){
-  /*Create message object*/
+function create_message_object(text, is_human){
+  /**
+   * Creates Message object
+   * 
+   * text: Str
+   * is_human: bool
+   */
 
   // Converts \n given in python to breakline suitable for HTML
-  console.log(text)
   text = text.replace(/\n/g, "<br>")
   time = _get_time()
   return {
@@ -95,7 +146,10 @@ function format_incoming_message(text, is_human){
 }
 
 function _get_time(){
-  /*Returns current time in HR:MM {AM,PM} */
+  /**
+   * Returns current time in HR:MM {AM,PM} 
+   */
+
   date = new Date()
   time = [date.getHours(), ":", date.getMinutes(), " "]
   // Hour correction
@@ -113,11 +167,29 @@ function _get_time(){
 
 }
 
+function _append(text, is_human) {
+  /**
+   * Appends an li onto the ul tag with id chat-start. 
+   * Text send to this method shouldn't require formatting anymore.
+   * 
+   * text: Str
+   * is_human: bool
+   */
+  message = create_message_object(text, is_human)
+  li = construct_li(message)
+  $("#chat-start").append(li)
+}
+
 function construct_li(message){
-  /*Construct li to be appended*/
+  /**
+   * Constructs a simple li with from the resulting message object. 
+   * Sets the li to the appropriate id ("human"/"bot") for styling
+   * 
+   * message: Message
+   */
   a = '<li class="message" id="'
   b = '">'
   c = "</li>"
-  message = a + message.human + b + message.time + ": " + message.payload + c
+  message = a + message.human + b + message.time + ": " + message.payload + "<br>" + c 
   return message
 }

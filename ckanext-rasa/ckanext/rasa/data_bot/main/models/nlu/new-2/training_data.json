@@ -1,0 +1,2083 @@
+{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "entities": [
+          {
+            "start": 5, 
+            "end": 24, 
+            "value": "Natural Environment", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "find Natural Environment data"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 11, 
+            "end": 20, 
+            "value": "opendata", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 27, 
+            "end": 34, 
+            "value": "landuse", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 39, 
+            "end": 46, 
+            "value": "Housing", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "search for open data about landuse and Housing"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 7, 
+            "end": 16, 
+            "value": "transport", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "source transport data "
+      }, 
+      {
+        "entities": [
+          {
+            "start": 25, 
+            "end": 30, 
+            "value": "child", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 31, 
+            "end": 37, 
+            "value": "health", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "source information about child health"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 38, 
+            "end": 53, 
+            "value": "Local Authority", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 54, 
+            "end": 66, 
+            "value": "transparency", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "I would like to source data regarding Local Authority transparency"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 12, 
+            "end": 18, 
+            "value": "census", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "looking for census datasets"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 20, 
+            "end": 26, 
+            "value": "marine", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "search database for marine data"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 24, 
+            "end": 29, 
+            "value": "child", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 30, 
+            "end": 34, 
+            "value": "care", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "do a database search on child care"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 36, 
+            "end": 41, 
+            "value": "Total", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 42, 
+            "end": 50, 
+            "value": "Internet", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 31, 
+            "end": 35, 
+            "value": "soil", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 51, 
+            "end": 66, 
+            "value": "Local Authority", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "look through the databases for soil Total Internet Local Authority"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 27, 
+            "end": 36, 
+            "value": "Estimates", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 40, 
+            "end": 48, 
+            "value": "children", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 49, 
+            "end": 58, 
+            "value": "Education", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 40, 
+            "end": 45, 
+            "value": "Child", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 69, 
+            "end": 75, 
+            "value": "Health", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "query packages relating to Estimates of children Education and Child Health"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 25, 
+            "end": 29, 
+            "value": "LSOA", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "retrieve data concerning LSOA"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 25, 
+            "end": 51, 
+            "value": "oac", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "get statistics regarding Output Area Classification"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 8, 
+            "value": "Internet", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 13, 
+            "end": 25, 
+            "value": "Social Media", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "Internet and Social Media statistics"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 11, 
+            "end": 15, 
+            "value": "mnrc", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "data about mnrc"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 11, 
+            "end": 17, 
+            "value": "census", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 18, 
+            "end": 22, 
+            "value": "2011", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "search for census 2011"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 11, 
+            "value": "Environment", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 16, 
+            "end": 21, 
+            "value": "water", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 22, 
+            "end": 31, 
+            "value": "pollution", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 32, 
+            "end": 36, 
+            "value": "2015", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "Environment and water pollution 2015 data"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 5, 
+            "end": 11, 
+            "value": "female", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 7, 
+            "end": 11, 
+            "value": "male", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 21, 
+            "end": 30, 
+            "value": "workplace", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 36, 
+            "end": 40, 
+            "value": "2000", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 52, 
+            "end": 53, 
+            "value": "5", 
+            "entity": "limit"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "find female and male workplace data 2000 limited to 5"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 23, 
+            "end": 33, 
+            "value": "government", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 34, 
+            "end": 41, 
+            "value": "british", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 42, 
+            "end": 52, 
+            "value": "earthquake", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "search for information government british earthquake top 10 results"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 7, 
+            "end": 12, 
+            "value": "water", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 13, 
+            "end": 24, 
+            "value": "environment", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 25, 
+            "end": 31, 
+            "value": "energy", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 42, 
+            "end": 46, 
+            "value": "2009", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 50, 
+            "end": 54, 
+            "value": "2015", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 60, 
+            "end": 61, 
+            "value": "7", 
+            "entity": "limit"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "source water environment energy data from 2009 to 2015 with 7 results"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 22, 
+            "end": 32, 
+            "value": "Population", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 44, 
+            "end": 46, 
+            "value": "20", 
+            "entity": "limit"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "source information on Population take first 20 results"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 38, 
+            "end": 45, 
+            "value": "housing", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 50, 
+            "end": 60, 
+            "value": "population", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 68, 
+            "end": 70, 
+            "value": "12", 
+            "entity": "limit"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "I would like to source data regarding housing and population return 12 results"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 16, 
+            "end": 18, 
+            "value": "10", 
+            "entity": "limit"
+          }, 
+          {
+            "start": 31, 
+            "end": 40, 
+            "value": "transport", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 41, 
+            "end": 47, 
+            "value": "London", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "looking for top 10 datasets on transport London"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 4, 
+            "end": 6, 
+            "value": "10", 
+            "entity": "limit"
+          }, 
+          {
+            "start": 38, 
+            "end": 46, 
+            "value": "children", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 47, 
+            "end": 56, 
+            "value": "education", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 57, 
+            "end": 61, 
+            "value": "2012", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "top 10 results for database search on children education 2012"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 19, 
+            "end": 21, 
+            "value": "10", 
+            "entity": "limit"
+          }, 
+          {
+            "start": 33, 
+            "end": 39, 
+            "value": "marine", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "query database for 10 results on marine"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 2, 
+            "value": "10", 
+            "entity": "limit"
+          }, 
+          {
+            "start": 42, 
+            "end": 49, 
+            "value": "federal", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 50, 
+            "end": 59, 
+            "value": "authority", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "10 results look through the databases for federal authority"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 27, 
+            "end": 29, 
+            "value": "United Kingdom", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 30, 
+            "end": 42, 
+            "value": "demographics", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 0, 
+            "end": 0, 
+            "value": "3", 
+            "entity": "limit"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "query packages relating to UK Demographics 20"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 9, 
+            "end": 17, 
+            "value": "opendata", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 21, 
+            "end": 28, 
+            "value": "poverty", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 29, 
+            "end": 35, 
+            "value": "levels", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 40, 
+            "end": 47, 
+            "value": "welfare", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "retrieve opendata on poverty levels and welfare"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 4, 
+            "end": 6, 
+            "value": "80", 
+            "entity": "limit"
+          }, 
+          {
+            "start": 36, 
+            "end": 40, 
+            "value": "LSOA", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 41, 
+            "end": 49, 
+            "value": "mobility", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 50, 
+            "end": 59, 
+            "value": "transport", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "get 80 latests statistics regarding LSOA mobility transport"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 6, 
+            "value": "census", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 7, 
+            "end": 11, 
+            "value": "1997", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "census 1997 statistics"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 11, 
+            "end": 19, 
+            "value": "internet", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 20, 
+            "end": 32, 
+            "value": "social media", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 33, 
+            "end": 41, 
+            "value": "facebook", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "data about internet social media facebook"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 11, 
+            "end": 17, 
+            "value": "social", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 27, 
+            "end": 32, 
+            "value": "media", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 33, 
+            "end": 41, 
+            "value": "coverage", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceData", 
+        "text": "search for social data and media coverage"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "find data"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "search for information"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "source data"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "source information"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "I would like to source data regarding"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "looking for datasets"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "search database"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "do a database search"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "look through the databases"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "query packages"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "retrieve data"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "get statistics"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "retrieve statistics"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "get data"
+      }, 
+      {
+        "entities": [], 
+        "intent": "sourceData", 
+        "text": "search"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "hey"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "hi"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "hello"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "yo"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "how's it going"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "what's up"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "good morning"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "good evening"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "howdy"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "hey there"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "Hello"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "Hi"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "Greetings"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "hi ya"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "how are you"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "Hi DataBot, nice to meet you"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "Hello my name is John"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "Hi are you working?"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "Hi does this work?"
+      }, 
+      {
+        "entities": [], 
+        "intent": "farewell", 
+        "text": "bye"
+      }, 
+      {
+        "entities": [], 
+        "intent": "farewell", 
+        "text": "goodbye"
+      }, 
+      {
+        "entities": [], 
+        "intent": "farewell", 
+        "text": "stop"
+      }, 
+      {
+        "entities": [], 
+        "intent": "farewell", 
+        "text": "end"
+      }, 
+      {
+        "entities": [], 
+        "intent": "farewell", 
+        "text": "farewell"
+      }, 
+      {
+        "entities": [], 
+        "intent": "farewell", 
+        "text": "Bye bye"
+      }, 
+      {
+        "entities": [], 
+        "intent": "farewell", 
+        "text": "have a good one"
+      }, 
+      {
+        "entities": [], 
+        "intent": "farewell", 
+        "text": "thanks"
+      }, 
+      {
+        "entities": [], 
+        "intent": "farewell", 
+        "text": "thank you"
+      }, 
+      {
+        "entities": [], 
+        "intent": "farewell", 
+        "text": "cheers"
+      }, 
+      {
+        "entities": [], 
+        "intent": "farewell", 
+        "text": "bless you"
+      }, 
+      {
+        "entities": [], 
+        "intent": "farewell", 
+        "text": "merci"
+      }, 
+      {
+        "entities": [], 
+        "intent": "farewell", 
+        "text": "go away"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "no"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "nah"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "nope"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "nae"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "never"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "no thanks"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "negative"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "not really"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "no indeed"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "absolutely not"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "most certainly not"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "no way"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "nothing else"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "No I'm good thanks"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "I'm good thanks"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "that's enough"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "nothing else is needed"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "I don't want to do anything else"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "I don't want help"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "No more help"
+      }, 
+      {
+        "entities": [], 
+        "intent": "deny", 
+        "text": "No more assistance"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "yes"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "yep"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "yeah"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "indeed"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "that's right"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "ok"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "great"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "right"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "correct"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "great choice"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "sounds really good"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "okay"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "alright"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "fine"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "sure thing"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "definitely"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "sure"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "what can you do"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "what can you offer"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "what can you perform"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "what tasks can you do"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "what functions can you do"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "tell me about yourself"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "how can you assist me?"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "HELP"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "help"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "display functionality"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "I'm not sure how this works"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "How does this work?"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "How do you work?"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "What can you do?"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "What can you do?"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "What can you do?"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "What can you do?"
+      }, 
+      {
+        "entities": [], 
+        "intent": "requestHelp", 
+        "text": "What can you do?"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 7, 
+            "value": "Housing", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "Housing"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 8, 
+            "value": "Mobility", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "Mobility"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 8, 
+            "value": "landuse", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "land use"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 26, 
+            "value": "oac", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "Output Area Classification"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 4, 
+            "value": "mncr", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 5, 
+            "end": 30, 
+            "value": "Internet and Social Media", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 31, 
+            "end": 42, 
+            "value": "Environment", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "mncr Internet and Social Media Environment"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 19, 
+            "value": "Natural Environment", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 20, 
+            "end": 29, 
+            "value": "transport", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "Natural Environment transport"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 5, 
+            "value": "child", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 6, 
+            "end": 12, 
+            "value": "Health", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 13, 
+            "end": 25, 
+            "value": "transparency", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "child Health transparency"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 6, 
+            "value": "census", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 8, 
+            "end": 14, 
+            "value": "marine", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 16, 
+            "end": 20, 
+            "value": "care", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 22, 
+            "end": 26, 
+            "value": "soil", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "census, marine, care, soil"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 5, 
+            "value": "Total", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 6, 
+            "end": 14, 
+            "value": "internet", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 15, 
+            "end": 30, 
+            "value": "Local Authority", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "Total internet Local Authority"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 7, 
+            "value": "Housing", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "Housing"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 8, 
+            "value": "Estimate", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 9, 
+            "end": 18, 
+            "value": "education", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 19, 
+            "end": 27, 
+            "value": "children", 
+            "entity": "limit"
+          }, 
+          {
+            "start": 39, 
+            "end": 40, 
+            "value": "6", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "Estimate education children limited to 6"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 6, 
+            "value": "Female", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 7, 
+            "end": 11, 
+            "value": "LSOA", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 12, 
+            "end": 20, 
+            "value": "Mobility", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 0, 
+            "end": 0, 
+            "value": "4", 
+            "entity": "limit"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "Female LSOA Mobility with 3 results"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 14, 
+            "end": 40, 
+            "value": "oac", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 41, 
+            "end": 45, 
+            "value": "mncr", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 0, 
+            "end": 2, 
+            "value": "10", 
+            "entity": "limit"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "10 results of Output Area Classification mncr"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 9, 
+            "value": "transport", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 10, 
+            "end": 14, 
+            "value": "2012", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "transport 2012"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 4, 
+            "value": "2000", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 8, 
+            "end": 12, 
+            "value": "2008", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 13, 
+            "end": 24, 
+            "value": "environment", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "2000 to 2008 environment"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 5, 
+            "value": "water", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "water"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 5, 
+            "value": "water", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 10, 
+            "end": 20, 
+            "value": "population", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "water and population"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 5, 
+            "value": "water", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 6, 
+            "end": 16, 
+            "value": "population", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 22, 
+            "end": 26, 
+            "value": "2018", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "water population data 2018"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 9, 
+            "value": "education", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 10, 
+            "end": 16, 
+            "value": "energy", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 17, 
+            "end": 22, 
+            "value": "water", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 23, 
+            "end": 33, 
+            "value": "population", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 34, 
+            "end": 38, 
+            "value": "2015", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "education energy water population 2015"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 6, 
+            "value": "health", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 7, 
+            "end": 11, 
+            "value": "Male", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 12, 
+            "end": 21, 
+            "value": "workplace", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 22, 
+            "end": 31, 
+            "value": "Education", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "health Male workplace Education"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 6, 
+            "value": "Energy", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "Energy"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 10, 
+            "value": "Population", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "Population"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 7, 
+            "value": "housing", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "housing"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 8, 
+            "value": "mobility", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "mobility"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 8, 
+            "value": "landuse", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "land use"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 26, 
+            "value": "oac", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "Output Area Classification"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 7, 
+            "value": "natural", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 8, 
+            "end": 19, 
+            "value": "environment", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 20, 
+            "end": 29, 
+            "value": "transport", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "natural environment transport"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 5, 
+            "value": "child", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 6, 
+            "end": 12, 
+            "value": "health", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 13, 
+            "end": 25, 
+            "value": "transparency", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "child health transparency"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 6, 
+            "value": "marine", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 8, 
+            "end": 12, 
+            "value": "care", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 14, 
+            "end": 18, 
+            "value": "soil", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "marine, care, soil"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 5, 
+            "value": "total", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 6, 
+            "end": 14, 
+            "value": "internet", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 15, 
+            "end": 30, 
+            "value": "local authority", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "total internet local authority"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 7, 
+            "value": "Housing", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "Housing"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 8, 
+            "value": "estimate", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 9, 
+            "end": 18, 
+            "value": "education", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 19, 
+            "end": 27, 
+            "value": "children", 
+            "entity": "limit"
+          }, 
+          {
+            "start": 39, 
+            "end": 40, 
+            "value": "6", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "estimate education children limited to 6"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 6, 
+            "value": "female", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 7, 
+            "end": 11, 
+            "value": "LSOA", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 13, 
+            "end": 20, 
+            "value": "obility", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 0, 
+            "end": 0, 
+            "value": "4", 
+            "entity": "limit"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "female LSOA bobility with 3 results"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 14, 
+            "end": 40, 
+            "value": "oac", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 41, 
+            "end": 45, 
+            "value": "mncr", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 0, 
+            "end": 2, 
+            "value": "10", 
+            "entity": "limit"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "10 results of Output Area Classification mncr"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 9, 
+            "value": "transport", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 10, 
+            "end": 14, 
+            "value": "2012", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "transport 2012"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 4, 
+            "value": "2000", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 8, 
+            "end": 12, 
+            "value": "2008", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 13, 
+            "end": 24, 
+            "value": "environment", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "2000 to 2008 environment"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 5, 
+            "value": "water", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "water"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 5, 
+            "value": "water", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 10, 
+            "end": 20, 
+            "value": "population", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "water and population"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 5, 
+            "value": "water", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 6, 
+            "end": 16, 
+            "value": "population", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 22, 
+            "end": 26, 
+            "value": "2018", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "water population data 2018"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 9, 
+            "value": "education", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 10, 
+            "end": 16, 
+            "value": "energy", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 17, 
+            "end": 22, 
+            "value": "water", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 23, 
+            "end": 33, 
+            "value": "population", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 34, 
+            "end": 38, 
+            "value": "2015", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "education energy water population 2015"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 6, 
+            "value": "health", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 7, 
+            "end": 11, 
+            "value": "Male", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 12, 
+            "end": 21, 
+            "value": "workplace", 
+            "entity": "tags"
+          }, 
+          {
+            "start": 22, 
+            "end": 31, 
+            "value": "Education", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "health Male workplace Education"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 6, 
+            "value": "energy", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "energy"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 0, 
+            "end": 10, 
+            "value": "population", 
+            "entity": "tags"
+          }
+        ], 
+        "intent": "sourceDataProvideTags", 
+        "text": "population"
+      }
+    ], 
+    "entity_synonyms": [], 
+    "regex_features": []
+  }
+}

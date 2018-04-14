@@ -12,6 +12,7 @@ from rasa_core.slots import DataSlot
 from rasa_core.events import UserUttered
 from rasa_core.tracker_store import RedisTrackerStore    
 from rasa_core.domain import TemplateDomain
+from rasa_core.server import RasaCoreServer
 import os.path as path
 import json
 import csv
@@ -171,4 +172,38 @@ class ExtendedListSlot(DataSlot):
             # we couldn't convert the value to a list - using default value
             return [0.0]
 
+def _configure_logging(loglevel, logfile):
+    if logfile:
+        fh = logging.FileHandler(logfile)
+        fh.setLevel(loglevel)
+        logging.getLogger('').addHandler(fh)
+    logging.captureWarnings(True)
 
+class ExtendedRasaCoreServer(RasaCoreServer):
+
+    def __init__(self, model_directory,
+                interpreter=None,
+                loglevel="INFO",
+                logfile="rasa_core.log",
+                cors_origins=None,
+                action_factory=None,
+                auth_token=None,
+                tracker_store=None):
+
+        _configure_logging(loglevel, logfile)
+
+        self.config = {"cors_origins": cors_origins if cors_origins else [],
+                    "token": auth_token}
+        self.agent = self._create_agent(model_directory, interpreter,
+                                        action_factory, tracker_store)
+
+
+    @staticmethod
+    def _create_agent(
+        model_directory,
+        interpreter,
+        action_factory=None,
+        tracker_store=None
+        ):
+                return Agent.load(model_directory, interpreter,
+                          action_factory=action_factory, tracker_store=tracker_store)

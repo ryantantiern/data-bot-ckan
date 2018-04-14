@@ -8,3 +8,4 @@ ckanext-rasa/rasa/data_bot/main/data/template/
 ckanext-rasa/rasa/data_bot/main/data/data_24_3_18.json
 ckanext-rasa/rasa/data_bot/main/data/stories_24_3_18.md
 ckanext-rasa/rasa/data_bot/main/vis/
+ckanext-rasa/rasa/data_bot/main/evaluation/
