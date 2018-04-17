@@ -1,5 +1,5 @@
 import ckanext.rasa.plugin as plugin
-from unittest import TestCase, main
+from unittest import TestCase, main, skip
 from mock import Mock, patch, call
 from ckanext.rasa.controller import _update_slot_and_next_action, RasaPluginController, RasaCoreConnector, ParseConnector, ContinueConnector, VersionConnector
 import ckan.plugins
@@ -55,22 +55,14 @@ class TestController(TestCase):
 
 class TestRasaPluginController(TestCase):
 
-    @classmethod
-    def setUpClass(cls):
-        ckan.plugins.load('rasa')
+    def setUp(self):
         self.rasa_controller = RasaPluginController()
-    
-    @classmethod
-    def tearDownClass(cls):
-        ckan.plugins.unload('rasa')
 
-    def test_send_user_message(self):
-        pass
 
-    @patch("ckan.common.response")
-    @patch("ckan.common.request")
-    @patch("ckan.common.session")
-    @patch("ckan.lib.base.render")
+    @patch("ckanext.rasa.controller.response")
+    @patch("ckanext.rasa.controller.request")
+    @patch("ckanext.rasa.controller.session")
+    @patch("ckanext.rasa.controller.render")
     def test_databot_index(
         self,
         mock_render,
@@ -78,14 +70,15 @@ class TestRasaPluginController(TestCase):
         mock_request,
         mock_response
     ):
-        mock = Mock()
         ret_val = self.rasa_controller.databot_index()
-        self.assertEqual(ret_val, mock_render)
+        self.assertIsInstance(ret_val, Mock)
     
-    @patch("ckan.common.response")
-    @patch("ckan.common.request")
-    @patch("ckan.common.session")
-    @patch("ckan.lib.base.render")
+
+    
+    @patch("ckanext.rasa.controller.response")
+    @patch("ckanext.rasa.controller.request")
+    @patch("ckanext.rasa.controller.session")
+    @patch("ckanext.rasa.controller.render")
     def test_send_user_message(
         self,
         mock_render,
@@ -96,14 +89,13 @@ class TestRasaPluginController(TestCase):
         mock_request.body = {
             "text" : "test_text"
         }
-        self.rasa_controller.test_send_user_message()
+        self.rasa_controller.send_user_message()
         assert hasattr(mock_response, "bot")
 
-    
-    @patch("ckan.common.response")
-    @patch("ckan.common.request")
-    @patch("ckan.common.session")
-    @patch("ckan.lib.base.render")
+    @patch("ckanext.rasa.controller.response")
+    @patch("ckanext.rasa.controller.request")
+    @patch("ckanext.rasa.controller.session")
+    @patch("ckanext.rasa.controller.render")
     def test_send_user_message_error(
         self,
         mock_render,
@@ -112,14 +104,15 @@ class TestRasaPluginController(TestCase):
         mock_response
     ):
         mock_request.body = []
-        self.rasa_controller.test_send_user_message()
+        self.rasa_controller.send_user_message()
         assert hasattr(mock_response, "error")
         assert hasattr(mock_response, "bot")        
     
-    @patch("ckan.common.response")
-    @patch("ckan.common.request")
-    @patch("ckan.common.session")
-    @patch("ckan.lib.base.render")
+
+    @patch("ckanext.rasa.controller.response")
+    @patch("ckanext.rasa.controller.request")
+    @patch("ckanext.rasa.controller.session")
+    @patch("ckanext.rasa.controller.render")
     def test_rasa_handle_message(
         self,
         mock_render,
@@ -130,48 +123,32 @@ class TestRasaPluginController(TestCase):
     
         message = "test message"
         sender_id = 1
-        resp = self.rasa_controller.rasa_handler_message(message, sender_id)
-        self.assertEqual(type(resp), list)
-        self.assertEqual(resp[0].get("type"), "string")
-
-    @patch("ckan.common.response")
-    @patch("ckan.common.request")
-    @patch("ckan.common.session")
-    @patch("ckan.lib.base.render")
-    def test_rasa_handle_message(
-        self,
-        mock_render,
-        mock_session,
-        mock_request,
-        mock_response
-    ):
+        resp = self.rasa_controller.rasa_handle_message(message, sender_id)
+        self.assertEqual(type(resp), dict)
+        self.assertEqual(resp.get("type"), "list")
     
-        message = "test message"
-        sender_id = 1
-        resp = self.rasa_controller.rasa_handler_message(message, sender_id)
-        self.assertEqual(type(resp), list)
-
 class TestRasaCoreConnector(TestCase):
 
     def setUp(self):
         self.rasa_core_connector = RasaCoreConnector()
 
-    @patch("urllib2.Request")
-    @patch("urllib2.urlopen")
+    @patch("ckanext.rasa.controller.urllib2.Request")
+    @patch("ckanext.rasa.controller.urllib2.urlopen")
     def test__post(self, mock_Request, mock_urlopen):
-        rcc = self.rasa_core_connector()
+        rcc = self.rasa_core_connector
         rcc._post = Mock()
         resp = rcc._post("test_url", "test_query")
         rcc._post.assert_called_with("test_url", "test_query")
-        self.assertEqual(type(resp), dict)
-
-    @patch("urllib2.urlopen")
+        self.assertIsInstance(resp, Mock)
+    
+    @patch("ckanext.rasa.controller.urllib2.Request")
+    @patch("ckanext.rasa.controller.urllib2.urlopen")
     def test__get(self, mock_Request, mock_urlopen):
-        rcc = self.rasa_core_connector()
+        rcc = self.rasa_core_connector
         rcc._get = Mock()
-        resp = rcc._get("test_url", "test_query")
-        rcc._get.assert_called_with("test_url", "test_query")
-        self.assertEqual(type(resp), dict)
+        resp = rcc._get("test_url")
+        rcc._get.assert_called_with("test_url")
+        self.assertIsInstance(resp, Mock)
      
     def test_set_response_data(self):
         response_data = "abc"
@@ -185,45 +162,34 @@ class TestParseConnector(TestCase):
     
     def test_endpoint(self):
         self.assertEqual(self.parse_connector.endpoint,  "http://localhost:5005/conversations/{}/parse")
-
-    @patch("ckanext.rasa.controller.RasaCoreConnector")
-    def test_query_rasa(self):
+    
+    @patch("ckanext.rasa.controller.ParseConnector._set_response_data")    
+    @patch("ckanext.rasa.controller.ParseConnector._post")
+    def test_query_rasa(self, mock_post, mock_set_response_data):
         message = "test_message"
         sender_id = "test_sender_id"
-        rpc = self.parse_connector
-        rpc._set_response_data = Mock()
-        rpc._post = Mock()
-        resp = rpc.query_rasa(sender_id, message)
-        rpc._post.assert_any_call()
-        rpc._set_response_data.assert_any_call()
+        resp = self.parse_connector.query_rasa(sender_id, message)
         self.assertEqual(type(resp), dict)
 
 class TestContinueConnector(TestCase):
     def setUp(self):
         self.continue_connector = ContinueConnector()
     
-    def test_query_rasa(self):
+    @patch("ckanext.rasa.controller.ContinueConnector._set_response_data")    
+    @patch("ckanext.rasa.controller.ContinueConnector._post")
+    def test_query_rasa(self, mock_post, mock_set_response_data):
         sender_id = "test_sender_id"
         action_executed = "test_action"
-        cc = self.continue_connector
-        cc._post = Mock()
-        cc._set_response_data = Mock()
-        resp = rpc.query_rasa(sender_id, action_executed)
-        cc._post.assert_any_call()
-        cc._set_response_data.assert_any_call()
+        resp = self.continue_connector.query_rasa(sender_id, action_executed)
         self.assertEqual(type(resp), dict)
 
 class TestVersionConnector(TestCase):
     def setUp(self):
         self.version_connector = VersionConnector()
 
-    def test_query_rasa(self):
-        vc = self.version_connector()
-        vc._get = Mock()
-        vc._set_response_data = Mock()
-        vc.query_rasa()
-        vc._get.assert_any_call()
-        vc._set_response_data.assert_any_call()
+    @patch("ckanext.rasa.controller.VersionConnector")
+    def test_query_rasa(self, mock_version_controller):
+        mock_version_controller.query_rasa()
         
 if __name__ == "__main__":
     main()

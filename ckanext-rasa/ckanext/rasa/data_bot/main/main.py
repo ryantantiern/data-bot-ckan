@@ -87,7 +87,6 @@ class UDLApiConnector(object):
                     })
             return results
         except urllib2.URLError as e:
-            print("URLError: Failed to access UDL CKAN server")
             return[{
                 "type":"string",
                 "data": "URLError: Failed to access UDL CKAN server"

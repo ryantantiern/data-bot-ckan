@@ -53,8 +53,6 @@ class RasaPluginController(toolkit.BaseController):
                 }
             body["bot"] = bot_response
         response.body = json.dumps(body)
-        from pprint import pprint as pprint
-        pprint(response.body)
         return
 
     def databot_index(self):
@@ -112,7 +110,6 @@ class RasaCoreConnector(object):
             response = f.read()
             return json.loads(response)
         except urllib2.URLError as e:
-            print("URLError: Failed to access Rasa Core server")
             return {"error": "URLError: Failed to access Rasa Core server"}
 
 
@@ -122,7 +119,6 @@ class RasaCoreConnector(object):
             response = f.read()
             return json.loads(response)
         except urllib2.URLError as e:
-            print("URLError: Failed to access Rasa Core server")
             return {"error" : "URLError: Failed to access Rasa Core server"}
 
     def _set_response_data(self, response_data):
