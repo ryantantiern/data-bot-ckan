@@ -1,0 +1,540 @@
+## Long Story 1
+* greet
+    - action_greet
+    - action_offer_help
+* requestHelp
+    - action_help
+    - action_offer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* requestHelp
+    - action_help
+    - action_offer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* requestHelp
+    - action_help
+    - action_offer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* affirm
+    - action_reset_slots
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* affirm
+    - action_reset_slots
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* sourceData{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare", "tags":"female", "tags":"male", "tags":"mobility", "tags":"london"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - slot{"tags":"female"}
+    - slot{"tags":"male"}
+    - slot{"tags":"mobility"}
+    - slot{"tags":"london"}
+    - action_source_data
+    - action_reoffer_help
+* deny
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* affirm
+    - action_reset_slots
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* affirm
+    - action_reset_slots
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* sourceData{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare", "tags":"female", "tags":"male", "tags":"mobility", "tags":"london"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - slot{"tags":"female"}
+    - slot{"tags":"male"}
+    - slot{"tags":"mobility"}
+    - slot{"tags":"london"}
+    - action_source_data
+    - action_reoffer_help
+* deny
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* affirm
+    - action_reset_slots
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* affirm
+    - action_reset_slots
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* affirm
+    - action_reset_slots
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* requestHelp
+    - action_help
+    - action_offer_help
+* requestHelp
+    - action_help
+    - action_offer_help
+* requestHelp
+    - action_help
+    - action_offer_help
+* requestHelp
+    - action_help
+    - action_offer_help
+* sourceData{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare", "tags":"female", "tags":"male", "tags":"mobility", "tags":"london", "tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare", "tags":"female", "tags":"male", "tags":"mobility", "tags":"london"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - slot{"tags":"female"}
+    - slot{"tags":"male"}
+    - slot{"tags":"mobility"}
+    - slot{"tags":"london"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - slot{"tags":"female"}
+    - slot{"tags":"male"}
+    - slot{"tags":"mobility"}
+    - slot{"tags":"london"}
+    - action_source_data
+    - action_reoffer_help
+* deny
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* affirm
+    - action_reset_slots
+    - action_offer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* requestHelp
+    - action_help
+    - action_offer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* requestHelp
+    - action_help
+    - action_offer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* requestHelp
+    - action_help
+    - action_offer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* affirm
+    - action_reset_slots
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* affirm
+    - action_reset_slots
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* sourceData{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare", "tags":"female", "tags":"male", "tags":"mobility", "tags":"london"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - slot{"tags":"female"}
+    - slot{"tags":"male"}
+    - slot{"tags":"mobility"}
+    - slot{"tags":"london"}
+    - action_source_data
+    - action_reoffer_help
+* deny
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* affirm
+    - action_reset_slots
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* affirm
+    - action_reset_slots
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* sourceData{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare", "tags":"female", "tags":"male", "tags":"mobility", "tags":"london"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - slot{"tags":"female"}
+    - slot{"tags":"male"}
+    - slot{"tags":"mobility"}
+    - slot{"tags":"london"}
+    - action_source_data
+    - action_reoffer_help
+* deny
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* affirm
+    - action_reset_slots
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* affirm
+    - action_reset_slots
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* affirm
+    - action_reset_slots
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* requestHelp
+    - action_help
+    - action_offer_help
+* requestHelp
+    - action_help
+    - action_offer_help
+* requestHelp
+    - action_help
+    - action_offer_help
+* requestHelp
+    - action_help
+    - action_offer_help
+* sourceData{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare", "tags":"female", "tags":"male", "tags":"mobility", "tags":"london", "tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare", "tags":"female", "tags":"male", "tags":"mobility", "tags":"london"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - slot{"tags":"female"}
+    - slot{"tags":"male"}
+    - slot{"tags":"mobility"}
+    - slot{"tags":"london"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - slot{"tags":"female"}
+    - slot{"tags":"male"}
+    - slot{"tags":"mobility"}
+    - slot{"tags":"london"}
+    - action_source_data
+    - action_reoffer_help
+* deny
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* sourceData
+    - action_source_data_prompt_tags
+* sourceDataProvideTags{"tags":"child", "tags":"population", "tags":"pollution", "tags": "healthcare"}
+    - slot{"tags":"child"}
+    - slot{"tags":"population"}
+    - slot{"tags":"pollution"}
+    - slot{"tags":"healthcare"}
+    - action_source_data
+    - action_reoffer_help
+* affirm
+    - action_reset_slots
+    - action_offer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* requestHelp
+    - action_help
+    - action_offer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help
+* requestHelp
+    - action_help
+    - action_offer_help
+* farewell
+    - action_farewell
+    - action_restart
+* greet
+    - action_greet
+    - action_offer_help

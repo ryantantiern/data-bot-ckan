@@ -1,7 +1,7 @@
  #!/usr/lib/ckan/default/bin python -W ignore::DeprecationWarning
 from unittest import TestCase, main, skipIf
 from mock import Mock, patch
-from ckanext.rasa.data_bot.main.extended import ExtendedRedisTrackerStore, ExtendedAgent, StatisticalMessageProcessor, Statistics, ExtendedListSlot
+from ckanext.rasa.data_bot.main.extended import ExtendedRedisTrackerStore, ExtendedAgent, StatisticalMessageProcessor, Statistics, ExtendedListSlot, ExtendedRasaCoreServer
 class TestExtendedClasses(TestCase):
 
     def test_ExtendedRedisTrackerStoreHasTimeout(self):
@@ -63,6 +63,11 @@ class TestExtendedClasses(TestCase):
         els.value = 2
         els.reset()
         self.assertEqual(els.value, [])
+
+    @patch("ckanext.rasa.data_bot.main.extended.Agent")
+    def test_ExtendedRasaCoreServer(self, mock_agent):
+        rasa_core_server = ExtendedRasaCoreServer._create_agent("test_dir", "test_int")
+        mock_agent.load.assert_called_with("test_dir", "test_int", action_factory=None, tracker_store=None)
 if __name__ == "__main__":
     main()
     

@@ -15,7 +15,7 @@ import ckan.plugins.toolkit as toolkit
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 MODEL_PATH = os.path.join(dir_path, "models/dialogue")
-INTEPRETER_PATH = os.path.join(dir_path, "models/nlu/default/current")
+INTEPRETER_PATH = os.path.join(dir_path, "models/nlu/default/newest")
 HOSTNAME = "http://udltest1.cs.ucl.ac.uk/" # config.get('ckan.site_url')
 REDIS_HOST = "localhost"
 PORT = 6379
@@ -49,7 +49,7 @@ class UDLApiConnector(object):
             response = f.read()
             return json.loads(response)
         except urllib2.URLError as e:
-          raise urllib2.URLError
+            raise urllib2.URLError
 
     def search_packages(self, tags, limit=5):
         """
@@ -80,6 +80,11 @@ class UDLApiConnector(object):
                 results = response["results"]
             results = self._filter_num_resources(results, limit)
             results = self._strip_data(results)
+            if len(results) == 0:
+                results.append({
+                        "type": "string",
+                        "data": "No results found. You can't access UDL CKAN Server without being on UCL's network."
+                    })
             return results
         except urllib2.URLError as e:
             print("URLError: Failed to access UDL CKAN server")

@@ -10,13 +10,15 @@ from ckanext.rasa.action_manager import execute_next_action
 logger = logging.getLogger(__name__)
 
 def _update_slot_and_next_action(data, response):
-    next_action = response["next_action"]
-    slots =(response["tracker"]).get("slots")
+    """
+    Sets the necessary data attributes
+    """
+    next_action = response.get("next_action")
+    slots =(response["tracker"]).get("slots") if response.get("tracker") else {}
     data["next_action"] = next_action
-    if slots:
-        data["slots"] = slots
-    else:
-        data["slots"] = {}
+    data["slots"] = slots
+    if response.get("error"):
+        data["error"] = response["error"]
 
 class RasaPluginController(toolkit.BaseController):
 
@@ -45,7 +47,10 @@ class RasaPluginController(toolkit.BaseController):
             bot_response = self.rasa_handle_message(message, sender_id) # Returns a list of responses
             if not bot_response:
                 body["error"] = True
-                bot_response = ["DataBot didn't get any response. DataBot server is probably down."]
+                bot_response ={
+                    "type": "string",
+                    "data" : "DataBot didn't get any response. DataBot server is probably down."
+                }
             body["bot"] = bot_response
         response.body = json.dumps(body)
         from pprint import pprint as pprint
@@ -72,6 +77,12 @@ class RasaPluginController(toolkit.BaseController):
             "type": "list",
             "data" : []
         }
+        if data.get("next_action") is None:
+            response_channel["data"].append({
+                    "type" : "string",
+                    "data": data.get("error")
+            })
+            return response_channel
         next_action = data["next_action"]
         while next_action != "action_listen":
             events = []
@@ -82,7 +93,7 @@ class RasaPluginController(toolkit.BaseController):
                 return ["{}. The UDL team has been notified of the error.".format(ret["error"])]
             response = continue_connector.query_rasa(sender_id, next_action, events)
             _update_slot_and_next_action(data, response)
-            next_action = data["next_action"]            
+            next_action = data["next_action"]
         return response_channel
 
         

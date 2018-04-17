@@ -1,0 +1,88 @@
+*hey-greet-0
+*hi-greet-0
+*hello-greet-0
+*yo-greet-0
+*how's it going-greet-0
+*what's up-greet-0
+*good morning-greet-0
+*good evening-greet-0
+*howdy-greet-0
+*hey there-greet-0
+*Hello-greet-0
+*Hi-greet-0
+*Greetings-greet-0
+*hi ya-greet-0
+*how are you-greet-0
+*Hi DataBot, nice to meet you-greet-0
+*Hello my name is John-greet-0
+*Hi are you working?-greet-0
+*Hi does this work?-greet-0
+*bye-farewell-0
+*goodbye-farewell-0
+*stop-farewell-0
+*end-farewell-0
+*farewell-farewell-0
+*Bye bye-farewell-0
+*have a good one-farewell-0
+*thanks-farewell-0
+*thank you-farewell-0
+*cheers-farewell-0
+*bless you-farewell-0
+*merci-farewell-0
+*go away-farewell-0
+*no-deny-0
+*nah-deny-0
+*nope-deny-0
+*nae-deny-0
+*never-deny-0
+*no thanks-deny-0
+*negative-deny-0
+*not really-deny-0
+*no indeed-deny-0
+*absolutely not-deny-0
+*most certainly not-deny-0
+*no way-deny-0
+*nothing else-deny-0
+*No I'm good thanks-deny-0
+*I'm good thanks-deny-0
+*that's enough-deny-0
+*nothing else is needed-deny-0
+*I don't want to do anything else-deny-0
+*I don't want help-deny-0
+*No more help-deny-0
+*No more assistance-deny-0
+*yes-affirm-0
+*yep-affirm-0
+*yeah-affirm-0
+*indeed-affirm-0
+*that's right-affirm-0
+*ok-affirm-0
+*great-affirm-0
+*right-affirm-0
+*correct-affirm-0
+*great choice-affirm-0
+*sounds really good-affirm-0
+*okay-affirm-0
+*alright-affirm-0
+*fine-affirm-0
+*sure thing-affirm-0
+*definitely-affirm-0
+*sure-affirm-0
+*what can you do-requestHelp-0
+*what can you offer-requestHelp-0
+*what can you perform-requestHelp-0
+*what tasks can you do-requestHelp-0
+*what functions can you do-requestHelp-0
+*tell me about yourself-requestHelp-0
+*how can you assist me?-requestHelp-0
+*HELP-requestHelp-0
+*help-requestHelp-0
+*display functionality-requestHelp-0
+*I'm not sure how this works-requestHelp-0
+*How does this work?-requestHelp-0
+*How do you work?-requestHelp-0
+*What can you do?-requestHelp-0
+*What can you do?-requestHelp-0
+*What can you do?-requestHelp-0
+*What can you do?-requestHelp-0
+*What can you do?-requestHelp-0

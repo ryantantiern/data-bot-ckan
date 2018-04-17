@@ -46,10 +46,7 @@ def create_argument_parser():
     utils.add_logging_option_arguments(parser)
     return parser
 
-
-if __name__ == "__main__":
-    # Running as standalone python application
-    
+def main():
     arg_parser = create_argument_parser()
     cmdline_args = arg_parser.parse_args()
 
@@ -79,3 +76,8 @@ if __name__ == "__main__":
 
     # Run Rasa Core Server
     rasa.app.run("0.0.0.0", cmdline_args.port)
+
+if __name__ == "__main__":
+    # Running as standalone python application
+    main()
+

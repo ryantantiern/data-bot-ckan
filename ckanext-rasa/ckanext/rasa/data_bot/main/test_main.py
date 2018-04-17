@@ -3,62 +3,46 @@
 from __future__ import unicode_literals
 from unittest import TestCase, main, skipIf
 from mock import Mock, patch
-from ckanext.rasa.data_bot.main.main import instantiate_agent, api_get_data, _filter_num_resources, _strip_data, _remove_control_chars
-from ckanext.rasa.data_bot.main.extended import ExtendedAgent
+from ckanext.rasa.data_bot.main.main import UDLApiConnector
+import ckan.plugins.toolkit as toolkit
 
 class TestMainMethods(TestCase):
 
-    def test__initialize_redis_tracker_store(self):
-        pass
+    def setUp(self):
+        self.udl_api_connector = UDLApiConnector()
     
-    def test_instantiate_agent(self):
-        mock_agent = instantiate_agent(True)
-        self.assertIsInstance(mock_agent, ExtendedAgent)
+    def test_init(self):
+        self.assertEqual(self.udl_api_connector.endpoints["package_search"], toolkit.get_action("package_search"))
     
-    @patch("ckanext.rasa.data_bot.main.main.urllib.urlopen")
-    def test_api_get_data(self, mock_urlopen):
-        mock = Mock()
-        mock.read.side_effect = ['{"field1":"success"}']
-        mock_urlopen.return_value = mock
-        url = "http://notpercentencodedurl.com?test1=a b&goodbye=['bye']"
-        res = api_get_data(url)
-        self.assertEqual(res, {"field1" : "success"})
+    @patch("ckanext.rasa.data_bot.main.main.json.loads")                
+    @patch("ckanext.rasa.data_bot.main.main.urllib2.urlopen")        
+    def test__get(self, urlopen, loads):
+        resource = "test1"
+        self.udl_api_connector._get(resource)
+        urlopen.assert_called_with("http://udltest1.cs.ucl.ac.uk/test1")
+        
     
-    def test_api_get_package_by_tag(self):
-        pass
+    # @patch("ckanext.rasa.data_bot.main.main.urllib2.urlopen")
+    # def test_api_get_data(self, mock_urlopen):
+    #     mock = Mock()
+    #     mock.read.side_effect = ['{"field1":"success"}']
+    #     mock_urlopen.return_value = mock
+    #     url = "http://notpercentencodedurl.com?test1=a b&goodbye=['bye']"
+    #     res = api_get_data(url)
+    #     self.assertEqual(res, {"field1" : "success"})
 
     def test__filter_num_resources(self):
         results = [
-            {"data" : 1, "num_resources" : 0},
-            {"data" : 2, "num_resources" : -1},
-            {"data" : 3, "num_resources" : 5},
-            {"data" : 4, "num_resources" : 1}   
+           {"num_resources": 2},
+           {"num_resources": 2},
+           {"num_resources": 2},
+           {"num_resources": 2},
+           {"num_resources": 2},
+           {"num_resources": 2},           
         ]
         limit = 4
-        res = _filter_num_resources(results, limit)
-        self.assertEqual(len(res), 2)
-        self.assertIn({"data": 3, "num_resources": 5}, res)
-        self.assertIn({"data" : 4, "num_resources" : 1} , res)
-        
-    def test__filter_num_resources_limitedByLimit(self):
-        results = [
-            {"data" : 1, "num_resources" : 0},
-            {"data" : 2, "num_resources" : -1},
-            {"data" : 3, "num_resources" : 5},
-            {"data" : 4, "num_resources" : 1},
-            {"data" : 5, "num_resources" : 55},
-            {"data" : 6, "num_resources" : 12},
-            {"data" : 7, "num_resources" : 50},
-            {"data" : 8, "num_resources" : 10}         
-        ]
-        limit = 4
-        res = _filter_num_resources(results, limit)
+        res = self.udl_api_connector._filter_num_resources(results, limit)
         self.assertEqual(len(res), 4)
-
-    def test_remove_control_chars(self):
-        test_string = ("\n\tTEst")
-        res = _remove_control_chars(test_string)
-        self.assertEqual(res, "TEst")
 
     def test__strip_data(self):
         d = [{
@@ -68,12 +52,16 @@ class TestMainMethods(TestCase):
                 "title": "testOrg"
             }
         }]
-        res = _strip_data(d)
-        self.assertEqual(res, [{unicode("t"):unicode("Title: test title"), unicode("nr") : unicode("Num of resources: 100"), unicode("o"): unicode("Organization: testOrg") }])
+        res = self.udl_api_connector._strip_data(d)
+        self.assertEqual(res, [
+            {
+            unicode("title"): unicode("test title"),
+            unicode("num_of_resources"): unicode("100"),
+            unicode("org"): unicode("testOrg"),
+            unicode("type"): unicode("source_data_object")
+             }])
 
-    def test__format_results_into_message(self):
-        # This method was never used
-        pass
+
 
 
 

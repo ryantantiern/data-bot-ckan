@@ -65,17 +65,6 @@ def provide_help( ** kwargs):
     }
     return response
 
-def clarify_understanding(**kwargs):
-    response = {
-        "message": "clarify understanding"
-    }
-    return response
-
-def give_up(**kwargs):
-    response = {
-        "message": "give up"
-    }
-    return response
 
 def reoffer_help(**kwargs):
     possible_responses = [
@@ -119,8 +108,6 @@ action_map = {
     "action_offer_help": offer_help,
     "action_source_data": source_data,
     "action_help": provide_help,
-    "action_clarify_understanding": clarify_understanding,
-    "action_give_up": give_up,
     "action_reoffer_help": reoffer_help,
     "action_source_data_prompt_tags": prompt_tags,
     "action_reset_slots": reset_slots,
