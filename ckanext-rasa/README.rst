@@ -41,14 +41,19 @@ ckanext-rasa
 Requirements
 ------------
 
-CKAN Version: >= 2.6.2 <br />
-Rasa Core: >= 0.8.3<br />
-Rasa NLU[spacy] : >= 0.11.3<br />
+CKAN Version: >= 2.6.2 
 
-Environment:<br />
-Ubuntu 14.04<br />
-Supervisor 3.2.2<br />
-Redis 2.3<br />
+Rasa Core: >= 0.8.3
+
+Rasa NLU[spacy] : >= 0.11.3
+
+Environment:
+
+Ubuntu 14.04
+
+Supervisor 3.2.2
+
+Redis 2.3
 
 ------------
 Installation
