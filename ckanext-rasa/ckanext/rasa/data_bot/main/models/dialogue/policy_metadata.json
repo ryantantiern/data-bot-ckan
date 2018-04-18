@@ -2,7 +2,8 @@
   "action_fingerprints": {
     "null": {
       "slots": [
-        "limit"
+        "limit", 
+        "tags"
       ]
     }, 
     "action_listen": {

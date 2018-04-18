@@ -1,5 +1,6 @@
-body {
+body .DataBot{
   font-size: rem;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .input-form{
