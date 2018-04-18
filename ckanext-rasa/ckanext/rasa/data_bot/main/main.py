@@ -15,7 +15,7 @@ import ckan.plugins.toolkit as toolkit
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 MODEL_PATH = os.path.join(dir_path, "models/dialogue")
-INTEPRETER_PATH = os.path.join(dir_path, "models/nlu/default/newest")
+INTEPRETER_PATH = os.path.join(dir_path, "models/nlu/default/current")
 HOSTNAME = "http://udltest1.cs.ucl.ac.uk/" # config.get('ckan.site_url')
 REDIS_HOST = "localhost"
 PORT = 6379

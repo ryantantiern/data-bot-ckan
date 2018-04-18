@@ -30,7 +30,7 @@ def train_nlu():
     training_data = load_data(NLU_DATA)
     trainer = Trainer(RasaNLUConfig(CONFIG_PATH))
     trainer.train(training_data)
-    model_directory = trainer.persist('../models/nlu', fixed_model_name="newest")
+    model_directory = trainer.persist('../models/nlu', fixed_model_name="current")
 
 def train_dialogue(domain_file=DOMAIN_FILE, model_path=MODEL_PATH, training_data_file=STORIES):
     agent = ExtendedAgent(domain=TemplateDomain.load(domain_file), policies=[SklearnPolicy()])
